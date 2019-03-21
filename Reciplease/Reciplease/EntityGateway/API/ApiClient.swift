@@ -6,7 +6,7 @@
 //  Copyright © 2019 Christophe Bugnon. All rights reserved.
 //
 
-import Foundation
+import Alamofire
 
 enum HTTPClientResult {
     case success(Data, HTTPURLResponse)
@@ -27,14 +27,14 @@ class ApiClientImplementation: ApiClient {
     private struct UnexpectedValuesRepresentation: Error {}
 
     public func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
-        session.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let data = data, let response = response as? HTTPURLResponse {
-                completion(.success(data, response))
-            } else {
-                completion(.failure(UnexpectedValuesRepresentation()))
-            }
-            }.resume()
+        Alamofire.request(url)
+        .validate(statusCode: 200...299)
+            .responseData { response in
+                guard let data = response.data, let httpUrlResponse = response.response else { return
+                    completion(.failure(response.error!))
+                }
+
+                completion(.success(data, httpUrlResponse))
+        }
     }
 }
