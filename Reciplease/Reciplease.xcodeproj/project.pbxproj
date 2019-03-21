@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -117,14 +117,13 @@
 		4656CE242243EFEB000ED1D1 /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
+				4656CE752244029B000ED1D1 /* Main */,
 				4656CE482243F020000ED1D1 /* Core */,
 				4656CE582243F342000ED1D1 /* EntityGateway */,
-				4656CE252243EFEB000ED1D1 /* AppDelegate.swift */,
+				4656CE7322440272000ED1D1 /* Scenes */,
 				4656CE272243EFEB000ED1D1 /* ViewController.swift */,
 				4656CE292243EFEB000ED1D1 /* Main.storyboard */,
-				4656CE2F2243EFEC000ED1D1 /* Assets.xcassets */,
-				4656CE312243EFEC000ED1D1 /* LaunchScreen.storyboard */,
-				4656CE342243EFEC000ED1D1 /* Info.plist */,
+				4656CE7422440289000ED1D1 /* Supporting Files */,
 			);
 			path = Reciplease;
 			sourceTree = "<group>";
@@ -238,6 +237,31 @@
 			path = Gateway;
 			sourceTree = "<group>";
 		};
+		4656CE7322440272000ED1D1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		4656CE7422440289000ED1D1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4656CE2F2243EFEC000ED1D1 /* Assets.xcassets */,
+				4656CE312243EFEC000ED1D1 /* LaunchScreen.storyboard */,
+				4656CE342243EFEC000ED1D1 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4656CE752244029B000ED1D1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4656CE252243EFEB000ED1D1 /* AppDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		92A51912C4215C0ED8C2A1B5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,7 +270,6 @@
 				C5C8AB84C5BBBBF3CFC15713 /* Pods-RecipleaseTests.debug.xcconfig */,
 				2ABD0A05DCF8FACD9D9F7ED6 /* Pods-RecipleaseTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -607,7 +630,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 78BZCUCGN3;
-				INFOPLIST_FILE = Reciplease/Info.plist;
+				INFOPLIST_FILE = "Reciplease/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -626,7 +649,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 78BZCUCGN3;
-				INFOPLIST_FILE = Reciplease/Info.plist;
+				INFOPLIST_FILE = "Reciplease/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
