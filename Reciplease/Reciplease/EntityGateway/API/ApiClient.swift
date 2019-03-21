@@ -28,7 +28,7 @@ class ApiClientImplementation: ApiClient {
 
     public func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
         Alamofire.request(url)
-        .validate(statusCode: 200...299)
+            .validate(statusCode: 200...299)
             .responseData { response in
                 guard let data = response.data, let httpUrlResponse = response.response else { return
                     completion(.failure(response.error!))
