@@ -24,6 +24,9 @@
 		4656CE622243F512000ED1D1 /* LocalPersistenceRecipeGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE612243F512000ED1D1 /* LocalPersistenceRecipeGateway.swift */; };
 		4656CE642243F571000ED1D1 /* NSManagedObjectContext-Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE632243F571000ED1D1 /* NSManagedObjectContext-Utils.swift */; };
 		4656CE662243F6AE000ED1D1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE652243F6AE000ED1D1 /* CoreDataStack.swift */; };
+		4656CE6A2243F7B2000ED1D1 /* ApiRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE692243F7B2000ED1D1 /* ApiRecipe.swift */; };
+		4656CE702243F8EA000ED1D1 /* ApiRecipesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE6F2243F8EA000ED1D1 /* ApiRecipesGateway.swift */; };
+		4656CE722243FD1F000ED1D1 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE712243FD1F000ED1D1 /* ApiClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		4656CE612243F512000ED1D1 /* LocalPersistenceRecipeGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPersistenceRecipeGateway.swift; sourceTree = "<group>"; };
 		4656CE632243F571000ED1D1 /* NSManagedObjectContext-Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext-Utils.swift"; sourceTree = "<group>"; };
 		4656CE652243F6AE000ED1D1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		4656CE692243F7B2000ED1D1 /* ApiRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRecipe.swift; sourceTree = "<group>"; };
+		4656CE6F2243F8EA000ED1D1 /* ApiRecipesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRecipesGateway.swift; sourceTree = "<group>"; };
+		4656CE712243FD1F000ED1D1 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,7 @@
 		4656CE582243F342000ED1D1 /* EntityGateway */ = {
 			isa = PBXGroup;
 			children = (
+				4656CE672243F785000ED1D1 /* API */,
 				4656CE592243F356000ED1D1 /* LocalPersistence */,
 			);
 			path = EntityGateway;
@@ -191,6 +198,32 @@
 				4656CE612243F512000ED1D1 /* LocalPersistenceRecipeGateway.swift */,
 			);
 			path = Gateways;
+			sourceTree = "<group>";
+		};
+		4656CE672243F785000ED1D1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4656CE6E2243F8B4000ED1D1 /* Gateway */,
+				4656CE682243F7AB000ED1D1 /* Entities */,
+				4656CE712243FD1F000ED1D1 /* ApiClient.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		4656CE682243F7AB000ED1D1 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				4656CE692243F7B2000ED1D1 /* ApiRecipe.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		4656CE6E2243F8B4000ED1D1 /* Gateway */ = {
+			isa = PBXGroup;
+			children = (
+				4656CE6F2243F8EA000ED1D1 /* ApiRecipesGateway.swift */,
+			);
+			path = Gateway;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,12 +329,15 @@
 			files = (
 				4656CE5C2243F37F000ED1D1 /* CoreDataRecipe.swift in Sources */,
 				4656CE642243F571000ED1D1 /* NSManagedObjectContext-Utils.swift in Sources */,
+				4656CE6A2243F7B2000ED1D1 /* ApiRecipe.swift in Sources */,
 				4656CE552243F17A000ED1D1 /* DeleteRecipe.swift in Sources */,
+				4656CE722243FD1F000ED1D1 /* ApiClient.swift in Sources */,
 				4656CE502243F0C1000ED1D1 /* Result.swift in Sources */,
 				4656CE532243F0E5000ED1D1 /* AddRecipe.swift in Sources */,
 				4656CE2E2243EFEB000ED1D1 /* Reciplease.xcdatamodeld in Sources */,
 				4656CE662243F6AE000ED1D1 /* CoreDataStack.swift in Sources */,
 				4656CE282243EFEB000ED1D1 /* ViewController.swift in Sources */,
+				4656CE702243F8EA000ED1D1 /* ApiRecipesGateway.swift in Sources */,
 				4656CE572243F29A000ED1D1 /* DisplayRecipesList.swift in Sources */,
 				4656CE622243F512000ED1D1 /* LocalPersistenceRecipeGateway.swift in Sources */,
 				4656CE262243EFEB000ED1D1 /* AppDelegate.swift in Sources */,
