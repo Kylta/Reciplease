@@ -11,6 +11,7 @@ import Foundation
 protocol ApiRecipesGateway: RecipesGateway {}
 
 final class ApiRecipesGatewayImplementation: ApiRecipesGateway {
+    private let url: URL
     private let client: ApiClient
 
     enum Error: Swift.Error {
@@ -18,12 +19,12 @@ final class ApiRecipesGatewayImplementation: ApiRecipesGateway {
         case invalidData
     }
 
-    init(client: ApiClient) {
+    init(url: URL, client: ApiClient) {
+        self.url = url
         self.client = client
     }
 
     func fetchRecipes(completionHandler: @escaping FetchRecipesEntityGatewayCompletionHandler) {
-        let url = URL(string: "https://api.yummly.com/v1/api/recipes?_app_id=82f4a536&_app_key=51bc109f3d02f621f3e62397cd754d62&q=POTATOES&requirePictures=true")!
         client.get(from: url) { result in
 
             switch result {

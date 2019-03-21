@@ -17,12 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        let client = ApiClientImplementation()
-        let request = ApiRecipesGatewayImplementation(client: client)
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barTintColor = UIColor(red: 55/255, green: 51/255, blue: 50/255, alpha: 1)
 
-        request.fetchRecipes { (result) in
-            print(try? result.dematerialize())
-        }
+        let attributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.foregroundColor : UIColor.white,
+            NSAttributedString.Key.font : UIFont(name: "chalkduster", size: 22)!]
+
+        UINavigationBar.appearance().titleTextAttributes = attributes
 
         return true
     }

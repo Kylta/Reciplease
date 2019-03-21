@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4125884C80CBB967054EDEC0 /* Pods_RecipleaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F55E5A1A79A43D40ADA0D55 /* Pods_RecipleaseTests.framework */; };
 		4656CE262243EFEB000ED1D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE252243EFEB000ED1D1 /* AppDelegate.swift */; };
-		4656CE282243EFEB000ED1D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE272243EFEB000ED1D1 /* ViewController.swift */; };
+		4656CE282243EFEB000ED1D1 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE272243EFEB000ED1D1 /* SearchController.swift */; };
 		4656CE2B2243EFEB000ED1D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4656CE292243EFEB000ED1D1 /* Main.storyboard */; };
 		4656CE2E2243EFEB000ED1D1 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE2C2243EFEB000ED1D1 /* Reciplease.xcdatamodeld */; };
 		4656CE302243EFEC000ED1D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4656CE2F2243EFEC000ED1D1 /* Assets.xcassets */; };
@@ -28,6 +28,15 @@
 		4656CE6A2243F7B2000ED1D1 /* ApiRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE692243F7B2000ED1D1 /* ApiRecipe.swift */; };
 		4656CE702243F8EA000ED1D1 /* ApiRecipesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE6F2243F8EA000ED1D1 /* ApiRecipesGateway.swift */; };
 		4656CE722243FD1F000ED1D1 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE712243FD1F000ED1D1 /* ApiClient.swift */; };
+		4656CE772244062F000ED1D1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE762244062F000ED1D1 /* TabBarController.swift */; };
+		4656CE7A224410E9000ED1D1 /* UITextField+bottomBoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE79224410E9000ED1D1 /* UITextField+bottomBoder.swift */; };
+		4656CE7E22442842000ED1D1 /* IngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4656CE7D22442842000ED1D1 /* IngredientCell.xib */; };
+		4656CE80224428B1000ED1D1 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE7F224428B1000ED1D1 /* IngredientCell.swift */; };
+		468F28B9224429F800D7B772 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F28B8224429F800D7B772 /* UITableViewExtensions.swift */; };
+		468F28C0224434BC00D7B772 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F28BF224434BC00D7B772 /* SearchPresenter.swift */; };
+		468F28C22244363F00D7B772 /* SearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F28C12244363F00D7B772 /* SearchConfigurator.swift */; };
+		468F28C62244421900D7B772 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F28C52244421900D7B772 /* UIViewExtensions.swift */; };
+		468F28C822444E3C00D7B772 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F28C722444E3C00D7B772 /* UIViewControllerExtensions.swift */; };
 		B01A94F55C61870907A52547 /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A82F7CDC8064E368B15D55 /* Pods_Reciplease.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +55,7 @@
 		2ABD0A05DCF8FACD9D9F7ED6 /* Pods-RecipleaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipleaseTests.release.xcconfig"; path = "Target Support Files/Pods-RecipleaseTests/Pods-RecipleaseTests.release.xcconfig"; sourceTree = "<group>"; };
 		4656CE222243EFEB000ED1D1 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4656CE252243EFEB000ED1D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4656CE272243EFEB000ED1D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4656CE272243EFEB000ED1D1 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		4656CE2A2243EFEB000ED1D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4656CE2D2243EFEB000ED1D1 /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
 		4656CE2F2243EFEC000ED1D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,6 +77,15 @@
 		4656CE692243F7B2000ED1D1 /* ApiRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRecipe.swift; sourceTree = "<group>"; };
 		4656CE6F2243F8EA000ED1D1 /* ApiRecipesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRecipesGateway.swift; sourceTree = "<group>"; };
 		4656CE712243FD1F000ED1D1 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		4656CE762244062F000ED1D1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4656CE79224410E9000ED1D1 /* UITextField+bottomBoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+bottomBoder.swift"; sourceTree = "<group>"; };
+		4656CE7D22442842000ED1D1 /* IngredientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCell.xib; sourceTree = "<group>"; };
+		4656CE7F224428B1000ED1D1 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
+		468F28B8224429F800D7B772 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
+		468F28BF224434BC00D7B772 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		468F28C12244363F00D7B772 /* SearchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConfigurator.swift; sourceTree = "<group>"; };
+		468F28C52244421900D7B772 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		468F28C722444E3C00D7B772 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		9F55E5A1A79A43D40ADA0D55 /* Pods_RecipleaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipleaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C8AB84C5BBBBF3CFC15713 /* Pods-RecipleaseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipleaseTests.debug.xcconfig"; path = "Target Support Files/Pods-RecipleaseTests/Pods-RecipleaseTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E2A82F7CDC8064E368B15D55 /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +139,6 @@
 				4656CE482243F020000ED1D1 /* Core */,
 				4656CE582243F342000ED1D1 /* EntityGateway */,
 				4656CE7322440272000ED1D1 /* Scenes */,
-				4656CE272243EFEB000ED1D1 /* ViewController.swift */,
 				4656CE292243EFEB000ED1D1 /* Main.storyboard */,
 				4656CE7422440289000ED1D1 /* Supporting Files */,
 			);
@@ -240,6 +257,9 @@
 		4656CE7322440272000ED1D1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				468F28BA22442AB900D7B772 /* Search */,
+				4656CE78224410D8000ED1D1 /* Helpers */,
+				4656CE762244062F000ED1D1 /* TabBarController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -260,6 +280,29 @@
 				4656CE252243EFEB000ED1D1 /* AppDelegate.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		4656CE78224410D8000ED1D1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4656CE79224410E9000ED1D1 /* UITextField+bottomBoder.swift */,
+				468F28B8224429F800D7B772 /* UITableViewExtensions.swift */,
+				468F28C52244421900D7B772 /* UIViewExtensions.swift */,
+				468F28C722444E3C00D7B772 /* UIViewControllerExtensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		468F28BA22442AB900D7B772 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				4656CE272243EFEB000ED1D1 /* SearchController.swift */,
+				4656CE7F224428B1000ED1D1 /* IngredientCell.swift */,
+				4656CE7D22442842000ED1D1 /* IngredientCell.xib */,
+				468F28BF224434BC00D7B772 /* SearchPresenter.swift */,
+				468F28C12244363F00D7B772 /* SearchConfigurator.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		92A51912C4215C0ED8C2A1B5 /* Pods */ = {
@@ -366,6 +409,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4656CE7E22442842000ED1D1 /* IngredientCell.xib in Resources */,
 				4656CE332243EFEC000ED1D1 /* LaunchScreen.storyboard in Resources */,
 				4656CE302243EFEC000ED1D1 /* Assets.xcassets in Resources */,
 				4656CE2B2243EFEB000ED1D1 /* Main.storyboard in Resources */,
@@ -454,18 +498,26 @@
 				4656CE642243F571000ED1D1 /* NSManagedObjectContext-Utils.swift in Sources */,
 				4656CE6A2243F7B2000ED1D1 /* ApiRecipe.swift in Sources */,
 				4656CE552243F17A000ED1D1 /* DeleteRecipe.swift in Sources */,
+				468F28C62244421900D7B772 /* UIViewExtensions.swift in Sources */,
 				4656CE722243FD1F000ED1D1 /* ApiClient.swift in Sources */,
 				4656CE502243F0C1000ED1D1 /* Result.swift in Sources */,
+				4656CE772244062F000ED1D1 /* TabBarController.swift in Sources */,
 				4656CE532243F0E5000ED1D1 /* AddRecipe.swift in Sources */,
 				4656CE2E2243EFEB000ED1D1 /* Reciplease.xcdatamodeld in Sources */,
 				4656CE662243F6AE000ED1D1 /* CoreDataStack.swift in Sources */,
-				4656CE282243EFEB000ED1D1 /* ViewController.swift in Sources */,
+				468F28C22244363F00D7B772 /* SearchConfigurator.swift in Sources */,
+				4656CE282243EFEB000ED1D1 /* SearchController.swift in Sources */,
+				4656CE80224428B1000ED1D1 /* IngredientCell.swift in Sources */,
+				4656CE7A224410E9000ED1D1 /* UITextField+bottomBoder.swift in Sources */,
 				4656CE702243F8EA000ED1D1 /* ApiRecipesGateway.swift in Sources */,
+				468F28C822444E3C00D7B772 /* UIViewControllerExtensions.swift in Sources */,
 				4656CE572243F29A000ED1D1 /* DisplayRecipesList.swift in Sources */,
+				468F28B9224429F800D7B772 /* UITableViewExtensions.swift in Sources */,
 				4656CE622243F512000ED1D1 /* LocalPersistenceRecipeGateway.swift in Sources */,
 				4656CE262243EFEB000ED1D1 /* AppDelegate.swift in Sources */,
 				4656CE4B2243F032000ED1D1 /* Recipe.swift in Sources */,
 				4656CE4E2243F069000ED1D1 /* RecipesGateway.swift in Sources */,
+				468F28C0224434BC00D7B772 /* SearchPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
