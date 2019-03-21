@@ -14,6 +14,12 @@
 		4656CE302243EFEC000ED1D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4656CE2F2243EFEC000ED1D1 /* Assets.xcassets */; };
 		4656CE332243EFEC000ED1D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4656CE312243EFEC000ED1D1 /* LaunchScreen.storyboard */; };
 		4656CE3E2243EFEC000ED1D1 /* RecipleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE3D2243EFEC000ED1D1 /* RecipleaseTests.swift */; };
+		4656CE4B2243F032000ED1D1 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE4A2243F032000ED1D1 /* Recipe.swift */; };
+		4656CE4E2243F069000ED1D1 /* RecipesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE4D2243F069000ED1D1 /* RecipesGateway.swift */; };
+		4656CE502243F0C1000ED1D1 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE4F2243F0C1000ED1D1 /* Result.swift */; };
+		4656CE532243F0E5000ED1D1 /* AddRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE522243F0E5000ED1D1 /* AddRecipe.swift */; };
+		4656CE552243F17A000ED1D1 /* DeleteRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE542243F17A000ED1D1 /* DeleteRecipe.swift */; };
+		4656CE572243F29A000ED1D1 /* DisplayRecipesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE562243F29A000ED1D1 /* DisplayRecipesList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,12 @@
 		4656CE392243EFEC000ED1D1 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4656CE3D2243EFEC000ED1D1 /* RecipleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseTests.swift; sourceTree = "<group>"; };
 		4656CE3F2243EFEC000ED1D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4656CE4A2243F032000ED1D1 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		4656CE4D2243F069000ED1D1 /* RecipesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesGateway.swift; sourceTree = "<group>"; };
+		4656CE4F2243F0C1000ED1D1 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		4656CE522243F0E5000ED1D1 /* AddRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipe.swift; sourceTree = "<group>"; };
+		4656CE542243F17A000ED1D1 /* DeleteRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRecipe.swift; sourceTree = "<group>"; };
+		4656CE562243F29A000ED1D1 /* DisplayRecipesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayRecipesList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +91,7 @@
 		4656CE242243EFEB000ED1D1 /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
+				4656CE482243F020000ED1D1 /* Core */,
 				4656CE252243EFEB000ED1D1 /* AppDelegate.swift */,
 				4656CE272243EFEB000ED1D1 /* ViewController.swift */,
 				4656CE292243EFEB000ED1D1 /* Main.storyboard */,
@@ -97,6 +110,43 @@
 				4656CE3F2243EFEC000ED1D1 /* Info.plist */,
 			);
 			path = RecipleaseTests;
+			sourceTree = "<group>";
+		};
+		4656CE482243F020000ED1D1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4656CE512243F0DA000ED1D1 /* UseCases */,
+				4656CE4C2243F05A000ED1D1 /* Gateways */,
+				4656CE492243F02B000ED1D1 /* Entities */,
+				4656CE4F2243F0C1000ED1D1 /* Result.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4656CE492243F02B000ED1D1 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				4656CE4A2243F032000ED1D1 /* Recipe.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		4656CE4C2243F05A000ED1D1 /* Gateways */ = {
+			isa = PBXGroup;
+			children = (
+				4656CE4D2243F069000ED1D1 /* RecipesGateway.swift */,
+			);
+			path = Gateways;
+			sourceTree = "<group>";
+		};
+		4656CE512243F0DA000ED1D1 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				4656CE522243F0E5000ED1D1 /* AddRecipe.swift */,
+				4656CE542243F17A000ED1D1 /* DeleteRecipe.swift */,
+				4656CE562243F29A000ED1D1 /* DisplayRecipesList.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +250,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4656CE552243F17A000ED1D1 /* DeleteRecipe.swift in Sources */,
+				4656CE502243F0C1000ED1D1 /* Result.swift in Sources */,
+				4656CE532243F0E5000ED1D1 /* AddRecipe.swift in Sources */,
 				4656CE2E2243EFEB000ED1D1 /* Reciplease.xcdatamodeld in Sources */,
 				4656CE282243EFEB000ED1D1 /* ViewController.swift in Sources */,
+				4656CE572243F29A000ED1D1 /* DisplayRecipesList.swift in Sources */,
 				4656CE262243EFEB000ED1D1 /* AppDelegate.swift in Sources */,
+				4656CE4B2243F032000ED1D1 /* Recipe.swift in Sources */,
+				4656CE4E2243F069000ED1D1 /* RecipesGateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
