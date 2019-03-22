@@ -283,9 +283,7 @@
 			children = (
 				4656CE762244062F000ED1D1 /* TabBarController.swift */,
 				468F28CB2244C2D000D7B772 /* ViewRouter.swift */,
-				468F28DE22450BD700D7B772 /* RecipeDetail */,
-				468F28CF2244C60900D7B772 /* RecipesList */,
-				468F28BA22442AB900D7B772 /* Search */,
+				4696E9E4224526A200BBC312 /* Remote */,
 				4656CE78224410D8000ED1D1 /* Helpers */,
 			);
 			path = Scenes;
@@ -355,6 +353,16 @@
 				468F28E322450CEC00D7B772 /* RecipeDetailConfigurator.swift */,
 			);
 			path = RecipeDetail;
+			sourceTree = "<group>";
+		};
+		4696E9E4224526A200BBC312 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				468F28DE22450BD700D7B772 /* RecipeDetail */,
+				468F28CF2244C60900D7B772 /* RecipesList */,
+				468F28BA22442AB900D7B772 /* Search */,
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 		92A51912C4215C0ED8C2A1B5 /* Pods */ = {
