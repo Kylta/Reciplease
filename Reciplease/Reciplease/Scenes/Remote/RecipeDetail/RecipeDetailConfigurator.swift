@@ -9,7 +9,7 @@
 import Foundation
 
 protocol RecipeDetailConfigurator {
-    func configure(recipeDetailsController: RecipeDetailController)
+    func configure(recipeDetailView: RecipeDetailView)
 }
 
 class RecipeDetailConfiguratorImplementation: RecipeDetailConfigurator {
@@ -19,13 +19,15 @@ class RecipeDetailConfiguratorImplementation: RecipeDetailConfigurator {
         self.recipe = recipe
     }
 
-    func configure(recipeDetailsController: RecipeDetailController) {
+    func configure(recipeDetailView: RecipeDetailView) {
 
         let viewContext = CoreDataStackImplementation.sharedInstance.persistentContainer.viewContext
         let recipesGateway = CoreDataRecipesGateway(viewContext: viewContext)
         let addRecipeUseCase = AddRecipeUseCaseImplementation(recipesGateway: recipesGateway)
-        let presenter = RecipeDetailPresenterImplementation(view: recipeDetailsController, addRecipeUseCase: addRecipeUseCase, recipe: recipe)
-        recipeDetailsController.presenter = presenter
+        let displayRecipeUseCase = DisplayRecipesListUseCaseImplementation(recipeGateway: recipesGateway)
+        let recipeDetailController = recipeDetailView as! RecipeDetailController
+        let presenter = RecipeDetailPresenterImplementation(view: recipeDetailController, addRecipeUseCase: addRecipeUseCase, displayRecipesUseCase: displayRecipeUseCase, recipe: recipe)
+        recipeDetailController.presenter = presenter
     }
 }
 

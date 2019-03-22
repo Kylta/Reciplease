@@ -16,16 +16,16 @@ class RecipeDetailLocalController: UIViewController, RecipeDetailView {
     @IBOutlet weak var ingredientsTableView: UITableView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
 
-    var presenter: RecipeDetailPresenter!
-//    var configurator: RecipeDetailLocalConfiguratorImplementation!
+    var presenter: RecipeDetailLocalPresenterImplementation!
+    var configurator: RecipeDetailLocalConfiguratorImplementation!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         ingredientsTableView.register(IngredientCell.self)
 
-//        configurator.configure(recipeDetailView: self)
-//        presenter.viewDidLoad()
+        configurator.configure(recipeDetailView: self)
+        presenter.viewDidLoad()
     }
 
     fileprivate func setupTableView() {
@@ -34,7 +34,8 @@ class RecipeDetailLocalController: UIViewController, RecipeDetailView {
     }
 
     @IBAction func saveButtonPressed(_ sender: Any) {
-//        presenter.addButtonPressed()
+        presenter.favoritesButtonPressed()
+//        navigationController?.popToRootViewController(animated: true)
     }
 
     func favorite(recipe: Bool) {
@@ -59,15 +60,14 @@ class RecipeDetailLocalController: UIViewController, RecipeDetailView {
     }
 }
 
-extension RecipeDetailController: UITableViewDataSource {
+extension RecipeDetailLocalController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return presenter.numberOfIngredients
-        return 2
+        return presenter.numberOfIngredients
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(IngredientCell.self)!
-//        presenter.configure(cell: cell, forRow: indexPath.row)
+        presenter.configure(cell: cell, forRow: indexPath.row)
         return cell
     }
 }

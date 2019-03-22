@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+protocol RecipeDetailLocalViewRouter {
+    func dismiss()
+}
+
+class RecipeDetailLocalViewRouterImplementation: RecipeDetailLocalViewRouter {
+    fileprivate weak var view: RecipeDetailLocalController?
+
+    init(view: RecipeDetailLocalController) {
+        self.view = view
+    }
+
+    func dismiss() {
+        view?.navigationController?.popToRootViewController(animated: true)
+    }
+}

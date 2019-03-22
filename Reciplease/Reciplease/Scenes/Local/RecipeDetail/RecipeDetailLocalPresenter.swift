@@ -11,7 +11,9 @@ import Foundation
 class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
     fileprivate let recipe: Recipe
     fileprivate let displayRecipesUseCase: DisplayRecipesUseCase
+    fileprivate let deleteRecipeUseCase: DeleteRecipeUseCase
     fileprivate weak var view: RecipeDetailView?
+    private(set) var router: RecipeDetailLocalViewRouter
 
     var numberOfIngredients: Int {
         return recipe.ingredients.count
@@ -20,9 +22,13 @@ class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
     init(view: RecipeDetailView,
          addRecipeUseCase: AddRecipeUseCase,
          displayRecipesUseCase: DisplayRecipesUseCase,
+         deleteRecipeUseCase: DeleteRecipeUseCase,
+         router: RecipeDetailLocalViewRouter,
          recipe: Recipe) {
         self.view = view
         self.displayRecipesUseCase = displayRecipesUseCase
+        self.deleteRecipeUseCase = deleteRecipeUseCase
+        self.router = router
         self.recipe = recipe
     }
 
@@ -40,16 +46,12 @@ class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
         view?.display(recipeImageUrl: recipeImageUrl)
     }
 
-    func addButtonPressed() {
-//        let parameters = AddRecipeParameters(name: recipe.name, ingredients: recipe.ingredients, id: recipe.id, rate: recipe.rate, time: recipe.time, imageURL: recipe.imageURL)
-//        addRecipeUseCase.add(parameters: parameters) { result in
-//            switch result {
-//            case .success:
-//                self.view?.favorite(recipe: true)
-//            case .failure:
-//                self.view?.favorite(recipe: false)
-//            }
-//        }
+    func favoritesButtonPressed() {
+        deleteRecipeUseCase.delete(recipe: recipe) { result in
+            if case .success = result {
+                self.router.dismiss()
+            }
+        }
     }
 
     func configure(cell: IngredientCellView, forRow row: Int) {

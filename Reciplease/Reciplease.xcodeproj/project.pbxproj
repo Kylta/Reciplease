@@ -53,6 +53,10 @@
 		4696E9F2224545B500BBC312 /* RecipeListLocalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4696E9F1224545B500BBC312 /* RecipeListLocalRouter.swift */; };
 		4696E9F4224545F400BBC312 /* RecipesListLocalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4696E9F3224545F400BBC312 /* RecipesListLocalPresenter.swift */; };
 		4696E9F6224546CB00BBC312 /* RecipesListLocalConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4696E9F5224546CB00BBC312 /* RecipesListLocalConfigurator.swift */; };
+		4696E9FA2245595900BBC312 /* RecipeDetailLocalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4696E9F92245595900BBC312 /* RecipeDetailLocalController.swift */; };
+		4696E9FC2245597700BBC312 /* RecipeDetailLocalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4696E9FB2245597700BBC312 /* RecipeDetailLocalPresenter.swift */; };
+		4696E9FE22455A3200BBC312 /* RecipeDetailLocalConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4696E9FD22455A3200BBC312 /* RecipeDetailLocalConfigurator.swift */; };
+		4696EA0422457D4900BBC312 /* RecipeDetailLocalViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4696EA0322457D4900BBC312 /* RecipeDetailLocalViewRouter.swift */; };
 		B01A94F55C61870907A52547 /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A82F7CDC8064E368B15D55 /* Pods_Reciplease.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +122,10 @@
 		4696E9F1224545B500BBC312 /* RecipeListLocalRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListLocalRouter.swift; sourceTree = "<group>"; };
 		4696E9F3224545F400BBC312 /* RecipesListLocalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListLocalPresenter.swift; sourceTree = "<group>"; };
 		4696E9F5224546CB00BBC312 /* RecipesListLocalConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesListLocalConfigurator.swift; sourceTree = "<group>"; };
+		4696E9F92245595900BBC312 /* RecipeDetailLocalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailLocalController.swift; sourceTree = "<group>"; };
+		4696E9FB2245597700BBC312 /* RecipeDetailLocalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailLocalPresenter.swift; sourceTree = "<group>"; };
+		4696E9FD22455A3200BBC312 /* RecipeDetailLocalConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailLocalConfigurator.swift; sourceTree = "<group>"; };
+		4696EA0322457D4900BBC312 /* RecipeDetailLocalViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailLocalViewRouter.swift; sourceTree = "<group>"; };
 		9F55E5A1A79A43D40ADA0D55 /* Pods_RecipleaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipleaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C8AB84C5BBBBF3CFC15713 /* Pods-RecipleaseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipleaseTests.debug.xcconfig"; path = "Target Support Files/Pods-RecipleaseTests/Pods-RecipleaseTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E2A82F7CDC8064E368B15D55 /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -377,12 +385,32 @@
 		4696E9E622453DBB00BBC312 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				4696E9F82245594B00BBC312 /* RecipeDetail */,
+				4696E9F72245594200BBC312 /* RecipeList */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		4696E9F72245594200BBC312 /* RecipeList */ = {
+			isa = PBXGroup;
+			children = (
 				4696E9EF224543CD00BBC312 /* RecipesListLocalController.swift */,
 				4696E9F3224545F400BBC312 /* RecipesListLocalPresenter.swift */,
 				4696E9F1224545B500BBC312 /* RecipeListLocalRouter.swift */,
 				4696E9F5224546CB00BBC312 /* RecipesListLocalConfigurator.swift */,
 			);
-			path = Local;
+			path = RecipeList;
+			sourceTree = "<group>";
+		};
+		4696E9F82245594B00BBC312 /* RecipeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4696E9F92245595900BBC312 /* RecipeDetailLocalController.swift */,
+				4696E9FB2245597700BBC312 /* RecipeDetailLocalPresenter.swift */,
+				4696E9FD22455A3200BBC312 /* RecipeDetailLocalConfigurator.swift */,
+				4696EA0322457D4900BBC312 /* RecipeDetailLocalViewRouter.swift */,
+			);
+			path = RecipeDetail;
 			sourceTree = "<group>";
 		};
 		92A51912C4215C0ED8C2A1B5 /* Pods */ = {
@@ -587,10 +615,13 @@
 				4656CE552243F17A000ED1D1 /* DeleteRecipe.swift in Sources */,
 				468F28C62244421900D7B772 /* UIViewExtensions.swift in Sources */,
 				4656CE722243FD1F000ED1D1 /* ApiClient.swift in Sources */,
+				4696E9FC2245597700BBC312 /* RecipeDetailLocalPresenter.swift in Sources */,
 				4656CE502243F0C1000ED1D1 /* Result.swift in Sources */,
 				4656CE772244062F000ED1D1 /* TabBarController.swift in Sources */,
+				4696E9FE22455A3200BBC312 /* RecipeDetailLocalConfigurator.swift in Sources */,
 				4656CE532243F0E5000ED1D1 /* AddRecipe.swift in Sources */,
 				4656CE2E2243EFEB000ED1D1 /* Reciplease.xcdatamodeld in Sources */,
+				4696EA0422457D4900BBC312 /* RecipeDetailLocalViewRouter.swift in Sources */,
 				4656CE662243F6AE000ED1D1 /* CoreDataStack.swift in Sources */,
 				468F28C22244363F00D7B772 /* SearchConfigurator.swift in Sources */,
 				4656CE282243EFEB000ED1D1 /* SearchController.swift in Sources */,
@@ -609,6 +640,7 @@
 				4656CE4B2243F032000ED1D1 /* Recipe.swift in Sources */,
 				4696E9F2224545B500BBC312 /* RecipeListLocalRouter.swift in Sources */,
 				4656CE4E2243F069000ED1D1 /* RecipesGateway.swift in Sources */,
+				4696E9FA2245595900BBC312 /* RecipeDetailLocalController.swift in Sources */,
 				4696E9F6224546CB00BBC312 /* RecipesListLocalConfigurator.swift in Sources */,
 				468F28CA2244C28C00D7B772 /* SearchViewRouter.swift in Sources */,
 				468F28CE2244C3EF00D7B772 /* RecipesListController.swift in Sources */,

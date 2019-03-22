@@ -34,6 +34,8 @@ class CoreDataRecipesGateway: LocalPersistenceRecipesGateway {
 
         if let coreDataRecipes = try? viewContext.allEntities(withType: CoreDataRecipe.self, predicate: predicate), let coreDataRecipe = coreDataRecipes.first {
             delete(recipe: coreDataRecipe.recipe) { _ in }
+            completionHandler(.failure(CoreError(message: "Failed adding the recipe, already in data base. Delete it.")))
+            return
         }
 
         guard let coreDataRecipe = viewContext.addEntity(withType: CoreDataRecipe.self) else {

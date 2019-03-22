@@ -56,9 +56,7 @@ class RecipesListPresenterImplementation: RecipesListPresenter {
     }
 
     func viewDidLoad() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.view?.refreshView()
-        }
+        self.view?.refreshView()
     }
 
     func cancelButtonPressed() {

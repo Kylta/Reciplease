@@ -24,18 +24,21 @@ class RecipeDetailController: UIViewController, RecipeDetailView {
 
         ingredientsTableView.register(IngredientCell.self)
 
-        configurator.configure(recipeDetailsController: self)
+        configurator.configure(recipeDetailView: self)
         presenter.viewDidLoad()
     }
 
+    fileprivate func setupTableView() {
+        ingredientsTableView.rowHeight = UITableView.automaticDimension
+        ingredientsTableView.estimatedRowHeight = UITableView.automaticDimension
+    }
+
     @IBAction func saveButtonPressed(_ sender: Any) {
-        presenter.addButtonPressed()
+        presenter.favoritesButtonPressed()
     }
 
     func favorite(recipe: Bool) {
-        if recipe {
-            favoriteButton.image?.withRenderingMode(recipe ? .alwaysOriginal : .alwaysTemplate)
-        }
+        favoriteButton.image = #imageLiteral(resourceName: "green star").withRenderingMode(recipe ? .alwaysOriginal : .alwaysTemplate)
     }
 
 

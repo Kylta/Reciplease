@@ -20,9 +20,11 @@ class RecipeDetailLocalConfiguratorImplementation: RecipeDetailConfigurator {
         let viewContext = CoreDataStackImplementation.sharedInstance.persistentContainer.viewContext
         let recipesGateway = CoreDataRecipesGateway(viewContext: viewContext)
         let addRecipeUseCase = AddRecipeUseCaseImplementation(recipesGateway: recipesGateway)
+        let deleteRecipeUseCase = DeleteRecipeUseCaseImplementation(recipeGateway: recipesGateway)
         let displayRecipeUseCase = DisplayRecipesListUseCaseImplementation(recipeGateway: recipesGateway)
         let recipeDetailController = recipeDetailView as! RecipeDetailLocalController
-        let presenter = RecipeDetailLocalPresenterImplementation(view: recipeDetailController, addRecipeUseCase: addRecipeUseCase, displayRecipesUseCase: displayRecipeUseCase, recipe: recipe)
+        let router = RecipeDetailLocalViewRouterImplementation(view: recipeDetailController)
+        let presenter = RecipeDetailLocalPresenterImplementation(view: recipeDetailController, addRecipeUseCase: addRecipeUseCase, displayRecipesUseCase: displayRecipeUseCase, deleteRecipeUseCase: deleteRecipeUseCase, router: router, recipe: recipe)
         recipeDetailController.presenter = presenter
     }
 }

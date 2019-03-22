@@ -28,8 +28,8 @@ class RecipesListLocalRouterImplementation: RecipesListViewRouter {
     }
 
     func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let recipeDetailController = segue.destination as? RecipeDetailController {
-            recipeDetailController.configurator = RecipeDetailConfiguratorImplementation(recipe: recipe)
+        if let recipeDetailController = segue.destination as? RecipeDetailLocalController {
+            recipeDetailController.configurator = RecipeDetailLocalConfiguratorImplementation(recipe: recipe)
         }
     }
 }
