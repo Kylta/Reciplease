@@ -14,7 +14,8 @@ class RecipeDetailController: UIViewController, RecipeDetailView {
     @IBOutlet var ratingImageView: [UIImageView]!
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var ingredientsTableView: UITableView!
-    
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
+
     var presenter: RecipeDetailPresenter!
     var configurator: RecipeDetailConfiguratorImplementation!
 
@@ -26,6 +27,17 @@ class RecipeDetailController: UIViewController, RecipeDetailView {
         configurator.configure(recipeDetailsController: self)
         presenter.viewDidLoad()
     }
+
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        presenter.addButtonPressed()
+    }
+
+    func favorite(recipe: Bool) {
+        if recipe {
+            favoriteButton.image?.withRenderingMode(recipe ? .alwaysOriginal : .alwaysTemplate)
+        }
+    }
+
 
     func display(recipeImageUrl: String) {
         backgroundImage.downloadedFrom(link: recipeImageUrl)

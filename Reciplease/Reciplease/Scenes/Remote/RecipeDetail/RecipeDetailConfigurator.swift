@@ -20,7 +20,11 @@ class RecipeDetailConfiguratorImplementation: RecipeDetailConfigurator {
     }
 
     func configure(recipeDetailsController: RecipeDetailController) {
-        let presenter = RecipeDetailPresenterImplementation(view: recipeDetailsController, recipe: recipe)
+
+        let viewContext = CoreDataStackImplementation.sharedInstance.persistentContainer.viewContext
+        let recipesGateway = CoreDataRecipesGateway(viewContext: viewContext)
+        let addRecipeUseCase = AddRecipeUseCaseImplementation(recipesGateway: recipesGateway)
+        let presenter = RecipeDetailPresenterImplementation(view: recipeDetailsController, addRecipeUseCase: addRecipeUseCase, recipe: recipe)
         recipeDetailsController.presenter = presenter
     }
 }

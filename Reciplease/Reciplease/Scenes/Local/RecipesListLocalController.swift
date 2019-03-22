@@ -1,5 +1,5 @@
 //
-//  RecipesListController.swift
+//  RecipesListLocalController.swift
 //  Reciplease
 //
 //  Created by Christophe Bugnon on 22/03/2019.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RecipesListController: UITableViewController, RecipesListView {
+class RecipesListLocalController: UITableViewController, RecipesListView {
     var presenter: RecipesListPresenter!
-    var configurator: RecipesListConfigurator!
+    var configurator = RecipesListLocalConfiguratorImplementation()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +18,8 @@ class RecipesListController: UITableViewController, RecipesListView {
         configurator.configure(recipesListView: self)
 
         tableView.register(RecipesListCell.self)
+
+        presenter.viewDidLoad()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

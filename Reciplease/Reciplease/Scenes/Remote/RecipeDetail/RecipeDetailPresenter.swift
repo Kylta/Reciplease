@@ -13,24 +13,30 @@ protocol RecipeDetailView: class {
     func display(recipeName: String)
     func display(rating: Int)
     func display(time: String)
+    func favorite(recipe: Bool)
 }
 
 protocol RecipeDetailPresenter {
     var numberOfIngredients: Int { get }
     func viewDidLoad()
+    func addButtonPressed()
     func configure(cell: IngredientCellView, forRow row: Int)
 }
 
 class RecipeDetailPresenterImplementation: RecipeDetailPresenter {
     fileprivate let recipe: Recipe
+    fileprivate let addRecipeUseCase: AddRecipeUseCase
     fileprivate weak var view: RecipeDetailView?
 
     var numberOfIngredients: Int {
         return recipe.ingredients.count
     }
 
-    init(view: RecipeDetailView, recipe: Recipe) {
+    init(view: RecipeDetailView,
+         addRecipeUseCase: AddRecipeUseCase,
+         recipe: Recipe) {
         self.view = view
+        self.addRecipeUseCase = addRecipeUseCase
         self.recipe = recipe
     }
 
@@ -41,6 +47,19 @@ class RecipeDetailPresenterImplementation: RecipeDetailPresenter {
         let recipeImageUrl = recipe.imageURL.replacingOccurrences(of: "90-c", with: "300-c")
         view?.display(recipeImageUrl: recipeImageUrl)
     }
+
+    func addButtonPressed() {
+        let parameters = AddRecipeParameters(name: recipe.name, ingredients: recipe.ingredients, id: recipe.id, rate: recipe.rate, time: recipe.time, imageURL: recipe.imageURL)
+        addRecipeUseCase.add(parameters: parameters) { result in
+            switch result {
+            case .success:
+                self.view?.favorite(recipe: true)
+            case .failure:
+                self.view?.favorite(recipe: false)
+            }
+        }
+    }
+
 
     func configure(cell: IngredientCellView, forRow row: Int) {
         cell.display(ingredient: recipe.ingredients[row])

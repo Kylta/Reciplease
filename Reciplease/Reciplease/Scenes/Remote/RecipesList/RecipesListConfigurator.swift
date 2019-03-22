@@ -9,7 +9,7 @@
 import Foundation
 
 protocol RecipesListConfigurator {
-    func configure(recipesListController: RecipesListController)
+    func configure(recipesListView: RecipesListView)
 }
 
 class RecipesListConfiguratorImplementation: RecipesListConfigurator {
@@ -23,7 +23,8 @@ class RecipesListConfiguratorImplementation: RecipesListConfigurator {
         self.recipesListPresenterDelegate = delegate
     }
 
-    func configure(recipesListController: RecipesListController) {
+    func configure(recipesListView: RecipesListView) {
+        let recipesListController = recipesListView as! RecipesListController
         let router = RecipesListRouterImplementation(recipesListController: recipesListController)
 
         let presenter = RecipesListPresenterImplementation(view: recipesListController, recipes: recipes, delegate: recipesListPresenterDelegate, router: router)

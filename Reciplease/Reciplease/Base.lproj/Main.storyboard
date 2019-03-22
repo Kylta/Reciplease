@@ -26,22 +26,6 @@
             </objects>
             <point key="canvasLocation" x="-1337" y="91"/>
         </scene>
-        <!--Favorite-->
-        <scene sceneID="uq1-Nc-6m0">
-            <objects>
-                <viewController id="JoZ-P3-Mr1" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7PG-Fn-Qun">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.13943034409999999" green="0.33370161059999998" blue="0.49413698909999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <viewLayoutGuide key="safeArea" id="h7z-0u-Q0z"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Favorite" id="odh-3h-GNm"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4dn-qi-hNS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="542" y="425"/>
-        </scene>
         <!--Search-->
         <scene sceneID="3yD-8t-e2c">
             <objects>
@@ -189,17 +173,17 @@
         <!--Reciplease-->
         <scene sceneID="Hvb-HB-tMl">
             <objects>
-                <tableViewController id="75v-pq-Luu" customClass="RecipesListController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="75v-pq-Luu" customClass="RecipesListRemoteController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9yt-0a-8c7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipesListCell" id="FBS-SB-bYZ" customClass="RecipesListCell" customModule="Reciplease" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RecipesListCell" id="FBS-SB-bYZ" customClass="RecipesListCell" customModule="Reciplease" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FBS-SB-bYZ" id="zDx-uc-moL" customClass="RecipesListCell" customModule="Reciplease" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -222,7 +206,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mRC-wK-N3l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2454" y="-241"/>
+            <point key="canvasLocation" x="2458" y="-241"/>
         </scene>
         <!--Recipe Detail Controller-->
         <scene sceneID="0fV-bu-mtl">
@@ -366,8 +350,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mep-47-pj4"/>
                     </view>
+                    <navigationItem key="navigationItem" id="l7N-WV-clR">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="green star" id="Mx0-Cn-fDU">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="4Cr-dc-SZE" id="4V1-KJ-TWl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="backgroundImage" destination="4Yw-nZ-W9R" id="UMK-Pz-tZo"/>
+                        <outlet property="favoriteButton" destination="Mx0-Cn-fDU" id="48m-Ra-qAg"/>
                         <outlet property="ingredientsTableView" destination="XCG-wZ-bLU" id="7u6-gd-YeN"/>
                         <outlet property="recipeNameLabel" destination="gI2-bn-fNx" id="JuW-EL-bH5"/>
                         <outlet property="timeLabel" destination="iOs-Ew-rIR" id="dzK-Ap-i9c"/>
@@ -397,6 +389,36 @@
             </objects>
             <point key="canvasLocation" x="1502" y="-241"/>
         </scene>
+        <!--Root View Controller-->
+        <scene sceneID="WJY-Lg-aa4">
+            <objects>
+                <tableViewController id="kJw-OU-sZm" customClass="RecipesListLocalController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="e3w-kE-V2b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="n3j-4C-ptn" customClass="RecipesListCell" customModule="Reciplease" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n3j-4C-ptn" id="ZHh-TK-lFy">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kJw-OU-sZm" id="Zej-3p-Yf1"/>
+                            <outlet property="delegate" destination="kJw-OU-sZm" id="wJo-xQ-rFE"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="jhg-nn-rRK"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Gfi-Bl-3i4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5y1-A6-vco" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="542" y="502"/>
+        </scene>
         <!--Reciplease-->
         <scene sceneID="Mbl-Lp-ajw">
             <objects>
@@ -409,7 +431,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="FC0-t5-0Zv" kind="relationship" relationship="viewControllers" id="iSa-tb-SV7"/>
-                        <segue destination="JoZ-P3-Mr1" kind="relationship" relationship="viewControllers" id="uI8-hE-MFU"/>
+                        <segue destination="kJw-OU-sZm" kind="relationship" relationship="viewControllers" id="oHO-mq-77f"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SF1-uK-MdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -418,6 +440,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="green star" width="100" height="100"/>
         <image name="timer" width="120" height="120"/>
         <image name="white star" width="100" height="100"/>
     </resources>
