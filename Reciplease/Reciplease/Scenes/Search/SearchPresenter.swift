@@ -26,10 +26,10 @@ protocol SearchPresenter {
     func addButtonPressed(ingredients: String)
     func clearButtonPressed()
     func searchRecipeButtonPressed()
-//    func recipesListPresenterCancel(presenter: RecipesListPresenter)
+    func recipesListPresenterCancel(presenter: RecipesListPresenter)
 }
 
-class SearchPresenterImplementation: SearchPresenter {
+class SearchPresenterImplementation: SearchPresenter, RecipesListPresenterDelegate {
     weak var view: SearchView?
     let router: SearchViewRouter
 
@@ -60,7 +60,7 @@ class SearchPresenterImplementation: SearchPresenter {
                 if recipes.isEmpty {
                     self?.presentAlert(title: "Recipe not found !", message: "Try another please")
                 } else {
-                    self?.router.presentRecipesListView(for: recipes)
+                    self?.router.presentRecipesListView(for: recipes, recipesListPresenterDelegate: self!)
                 }
                 self?.view?.hideLoader()
             case let .failure(error):
@@ -85,9 +85,9 @@ class SearchPresenterImplementation: SearchPresenter {
         view?.refreshSearchView()
     }
 
-//    func recipesListPresenterCancel(presenter: RecipesListPresenter) {
-//        presenter.router.dismiss()
-//    }
+    func recipesListPresenterCancel(presenter: RecipesListPresenter) {
+        presenter.router.dismiss()
+    }
 
     func configure(cell: IngredientCellView, forRow row: Int) {
         let ingredient = ingredients[row]

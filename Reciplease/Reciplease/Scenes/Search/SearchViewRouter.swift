@@ -9,11 +9,12 @@
 import UIKit
 
 protocol SearchViewRouter: ViewRouter {
-    func presentRecipesListView(for recipes: [Recipe])
+    func presentRecipesListView(for recipes: [Recipe], recipesListPresenterDelegate: RecipesListPresenterDelegate)
 }
 
 class SeachViewRouterImplementation: SearchViewRouter {
     fileprivate weak var searchController: SearchController?
+    fileprivate weak var recipesListPresenterDelegate: RecipesListPresenterDelegate?
     fileprivate var recipes = [Recipe]()
 
     init(searchController: SearchController) {
@@ -22,14 +23,16 @@ class SeachViewRouterImplementation: SearchViewRouter {
 
     // MARK: - SearchViewRouter
 
-    func presentRecipesListView(for recipes: [Recipe]) {
+    func presentRecipesListView(for recipes: [Recipe], recipesListPresenterDelegate: RecipesListPresenterDelegate) {
+        self.recipesListPresenterDelegate = recipesListPresenterDelegate
         self.recipes = recipes
         searchController?.performSegue(withIdentifier: "SearchSceneToRecipesListSceneSegue", sender: nil)
     }
 
     func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let recipesListController = segue.destination as? RecipesListController {
-            recipesListController.configurator = RecipesListConfiguratorImplementation(recipes: recipes)
+        if let navigationController = segue.destination as? UINavigationController,
+            let recipesListController = navigationController.topViewController as? RecipesListController {
+            recipesListController.configurator = RecipesListConfiguratorImplementation(recipes: recipes, delegate: recipesListPresenterDelegate)
         }
     }
 }

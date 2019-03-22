@@ -26,6 +26,10 @@ class SearchController: UIViewController, SearchView {
         ingredientsTableView.register(IngredientCell.self)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        presenter.router.prepare(for: segue, sender: sender)
+    }
+
     @IBAction func addButtonPressed() {
         presenter.addButtonPressed(ingredients: ingredientsTextField.text!)
         ingredientsTextField.text = ""
