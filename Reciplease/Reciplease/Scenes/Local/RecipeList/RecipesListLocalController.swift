@@ -39,7 +39,9 @@ class RecipesListLocalController: UITableViewController, RecipesListView {
     func displayRecipesRetrievalError(title: String, message: String) {
         presentAlert(title: title, message: message)
     }
+}
 
+extension RecipesListLocalController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelect(row: indexPath.row)
     }

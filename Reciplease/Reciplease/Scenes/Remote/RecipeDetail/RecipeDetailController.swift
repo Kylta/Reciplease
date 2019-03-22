@@ -11,10 +11,10 @@ import UIKit
 class RecipeDetailController: UIViewController, RecipeDetailView {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet var ratingImageView: [UIImageView]!
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var ingredientsTableView: UITableView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
+    @IBOutlet var ratingImageView: [UIImageView]!
 
     var presenter: RecipeDetailPresenter!
     var configurator: RecipeDetailConfiguratorImplementation!
