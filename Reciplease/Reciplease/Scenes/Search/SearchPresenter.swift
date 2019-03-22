@@ -21,17 +21,21 @@ protocol IngredientCellView {
 
 protocol SearchPresenter {
     var numberOfIngredients: Int { get }
+    var router: SearchViewRouter { get }
     func configure(cell: IngredientCellView, forRow row: Int)
     func addButtonPressed(ingredients: String)
     func clearButtonPressed()
     func searchRecipeButtonPressed()
+//    func recipesListPresenterCancel(presenter: RecipesListPresenter)
 }
 
 class SearchPresenterImplementation: SearchPresenter {
     weak var view: SearchView?
+    let router: SearchViewRouter
 
-    init(view: SearchView) {
+    init(view: SearchView, router: SearchViewRouter) {
         self.view = view
+        self.router = router
     }
 
     var ingredients = [String]()
@@ -56,7 +60,7 @@ class SearchPresenterImplementation: SearchPresenter {
                 if recipes.isEmpty {
                     self?.presentAlert(title: "Recipe not found !", message: "Try another please")
                 } else {
-
+                    self?.router.presentRecipesListView(for: recipes)
                 }
                 self?.view?.hideLoader()
             case let .failure(error):
@@ -80,6 +84,10 @@ class SearchPresenterImplementation: SearchPresenter {
         ingredients.forEach { self.ingredients.append($0) }
         view?.refreshSearchView()
     }
+
+//    func recipesListPresenterCancel(presenter: RecipesListPresenter) {
+//        presenter.router.dismiss()
+//    }
 
     func configure(cell: IngredientCellView, forRow row: Int) {
         let ingredient = ingredients[row]

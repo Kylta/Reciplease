@@ -143,6 +143,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="searchRecipeButtonPressed" destination="FC0-t5-0Zv" eventType="touchUpInside" id="VHy-Rp-tey"/>
+                                            <segue destination="DB2-fe-cff" kind="show" identifier="SearchSceneToRecipesListSceneSegue" id="RfN-wO-aHo"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -184,6 +185,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TsD-pe-GRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="542" y="-240"/>
+        </scene>
+        <!--Reciplease-->
+        <scene sceneID="Hvb-HB-tMl">
+            <objects>
+                <tableViewController id="75v-pq-Luu" customClass="RecipesListController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9yt-0a-8c7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="75v-pq-Luu" id="9Nv-kI-m82"/>
+                            <outlet property="delegate" destination="75v-pq-Luu" id="2JM-Jt-two"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Reciplease" id="Qvn-LT-tbp">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="nhY-1f-91A"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mRC-wK-N3l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2454" y="-241"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cIz-eu-D8P">
+            <objects>
+                <navigationController id="DB2-fe-cff" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SJO-gQ-RAA">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="75v-pq-Luu" kind="relationship" relationship="rootViewController" id="fWH-I3-s9Y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q46-FP-OUY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1502" y="-241"/>
         </scene>
         <!--Reciplease-->
         <scene sceneID="Mbl-Lp-ajw">

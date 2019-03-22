@@ -52,7 +52,6 @@ class SearchController: UIViewController, SearchView {
         presentAlert(title: title, message: message)
     }
 
-
     func refreshRecipeSearchView() {
         ingredientsTableView.reloadData()
     }
@@ -62,7 +61,7 @@ class SearchController: UIViewController, SearchView {
     }
 }
 
-extension SearchController: UITableViewDelegate, UITableViewDataSource {
+extension SearchController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.numberOfIngredients
     }

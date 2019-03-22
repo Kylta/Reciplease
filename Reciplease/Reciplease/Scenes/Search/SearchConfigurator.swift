@@ -14,7 +14,8 @@ protocol SearchConfigurator {
 
 class SearchConfiguratorImplementation: SearchConfigurator {
     func configure(searchController: SearchController) {
-        let presenter = SearchPresenterImplementation(view: searchController)
+        let router = SeachViewRouterImplementation(searchController: searchController)
+        let presenter = SearchPresenterImplementation(view: searchController, router: router)
         searchController.presenter = presenter
     }
 }
