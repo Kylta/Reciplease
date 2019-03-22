@@ -20,6 +20,10 @@ class RecipesListController: UITableViewController, RecipesListView {
         tableView.register(RecipesListCell.self)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        presenter.router.prepare(for: segue, sender: sender)
+    }
+
     @IBAction func cancelButtonPressed(_ sender: Any) {
         presenter.router.dismiss()
     }
@@ -30,6 +34,10 @@ class RecipesListController: UITableViewController, RecipesListView {
 
     func displayRecipesRetrievalError(title: String, message: String) {
         presentAlert(title: title, message: message)
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelect(row: indexPath.row)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

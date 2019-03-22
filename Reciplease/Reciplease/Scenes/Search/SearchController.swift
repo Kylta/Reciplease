@@ -22,12 +22,18 @@ class SearchController: UIViewController, SearchView {
 
         configurator.configure(searchController: self)
 
+        setupTableView()
         ingredientsTextField.setBottomBorder()
-        ingredientsTableView.register(IngredientCell.self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         presenter.router.prepare(for: segue, sender: sender)
+    }
+
+    private func setupTableView() {
+        ingredientsTableView.rowHeight = UITableView.automaticDimension
+        ingredientsTableView.estimatedRowHeight = UITableView.automaticDimension
+        ingredientsTableView.register(IngredientCell.self)
     }
 
     @IBAction func addButtonPressed() {

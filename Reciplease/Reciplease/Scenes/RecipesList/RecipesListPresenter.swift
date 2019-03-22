@@ -30,6 +30,7 @@ protocol RecipesListPresenter {
     var router: RecipesListViewRouter { get }
     func viewDidLoad()
     func configure(cell: RecipesListCellView, forRow row: Int)
+    func didSelect(row: Int)
     func cancelButtonPressed()
 }
 
@@ -62,6 +63,11 @@ class RecipesListPresenterImplementation: RecipesListPresenter {
 
     func cancelButtonPressed() {
         delegate?.recipesListPresenterCancel(presenter: self)
+    }
+
+    func didSelect(row: Int) {
+        let recipe = recipes[row]
+        self.router.presentRecipeDetailView(for: recipe)
     }
 
     func configure(cell: RecipesListCellView, forRow row: Int) {

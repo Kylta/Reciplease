@@ -18,14 +18,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="456" height="149.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="iRa-PQ-mXo">
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="iRa-PQ-mXo">
                         <rect key="frame" x="0.0" y="0.0" width="456" height="149.5"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                         </accessibility>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7Ql-Gf-4Cn">
-                        <rect key="frame" x="16" y="88" width="52" height="45.5"/>
+                        <rect key="frame" x="8" y="96" width="52" height="45.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3N1-eX-Yn6">
                                 <rect key="frame" x="0.0" y="0.0" width="52" height="24"/>
@@ -41,7 +41,7 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQE-m2-e4z">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQE-m2-e4z">
                         <rect key="frame" x="345" y="8" width="103" height="59"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Tdc-0y-s6j">
@@ -130,9 +130,9 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="iRa-PQ-mXo" secondAttribute="trailing" id="7sw-Gj-LyJ"/>
                     <constraint firstItem="iRa-PQ-mXo" firstAttribute="leading" secondItem="ANX-m7-Lxc" secondAttribute="leading" id="Ewn-h3-foj"/>
-                    <constraint firstAttribute="bottom" secondItem="7Ql-Gf-4Cn" secondAttribute="bottom" constant="16" id="a3D-La-iHt"/>
+                    <constraint firstAttribute="bottom" secondItem="7Ql-Gf-4Cn" secondAttribute="bottom" constant="8" id="a3D-La-iHt"/>
                     <constraint firstAttribute="trailing" secondItem="eQE-m2-e4z" secondAttribute="trailing" constant="8" id="bQH-B7-5ps"/>
-                    <constraint firstItem="7Ql-Gf-4Cn" firstAttribute="leading" secondItem="ANX-m7-Lxc" secondAttribute="leading" constant="16" id="bxN-3J-Vh8"/>
+                    <constraint firstItem="7Ql-Gf-4Cn" firstAttribute="leading" secondItem="ANX-m7-Lxc" secondAttribute="leading" constant="8" id="bxN-3J-Vh8"/>
                     <constraint firstItem="iRa-PQ-mXo" firstAttribute="top" secondItem="ANX-m7-Lxc" secondAttribute="top" id="g19-DR-3a3"/>
                     <constraint firstItem="eQE-m2-e4z" firstAttribute="top" secondItem="ANX-m7-Lxc" secondAttribute="top" constant="8" id="kat-Ee-DYp"/>
                     <constraint firstAttribute="bottom" secondItem="iRa-PQ-mXo" secondAttribute="bottom" id="yLO-b3-7S2"/>
