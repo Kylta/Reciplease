@@ -26,9 +26,7 @@ class RecipesListConfiguratorImplementation: RecipesListConfigurator {
     func configure(recipesListView: RecipesListView) {
         let recipesListController = recipesListView as! RecipesListController
         let router = RecipesListRouterImplementation(recipesListController: recipesListController)
-
         let presenter = RecipesListPresenterImplementation(view: recipesListController, recipes: recipes, delegate: recipesListPresenterDelegate, router: router)
-
         recipesListController.presenter = presenter
     }
 }

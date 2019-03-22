@@ -28,14 +28,8 @@ class RecipeDetailLocalController: UIViewController, RecipeDetailView {
         presenter.viewDidLoad()
     }
 
-    fileprivate func setupTableView() {
-        ingredientsTableView.rowHeight = UITableView.automaticDimension
-        ingredientsTableView.estimatedRowHeight = UITableView.automaticDimension
-    }
-
     @IBAction func saveButtonPressed(_ sender: Any) {
         presenter.favoritesButtonPressed()
-//        navigationController?.popToRootViewController(animated: true)
     }
 
     func favorite(recipe: Bool) {
@@ -57,6 +51,11 @@ class RecipeDetailLocalController: UIViewController, RecipeDetailView {
 
     func display(time: String) {
         timeLabel.text = time
+    }
+
+    fileprivate func setupTableView() {
+        ingredientsTableView.rowHeight = UITableView.automaticDimension
+        ingredientsTableView.estimatedRowHeight = UITableView.automaticDimension
     }
 }
 
