@@ -45,12 +45,12 @@ class RecipeDetailPresenterImplementation: RecipeDetailPresenter {
     }
 
     func viewDidLoad() {
-        recipeDetail = recipe.detail
-//        displayRecipesUseCase.displayRecipes { result in
-//            if case let .success(recipes) = result {
-//                self.view?.favorite(recipe: recipes.contains(self.recipeDetail))
-//            }
-//        }
+        recipeDetail = recipe.details
+        displayRecipesUseCase.displayRecipes { result in
+            if case let .success(recipes) = result {
+                self.view?.favorite(recipe: recipes.contains(self.recipe))
+            }
+        }
 
         view?.display(time: "\(recipeDetail.time / 60) min")
         view?.display(rating: recipeDetail.rate)
@@ -60,15 +60,16 @@ class RecipeDetailPresenterImplementation: RecipeDetailPresenter {
     }
 
     func favoritesButtonPressed() {
-//        let parameters = AddRecipeParameters(name: recipeDetail.name, ingredients: recipeDetail.ingredients, id: recipe.id, rate: recipe.rate, time: recipe.time, imageURL: recipe.imageURL, detail: recipe.detail)
-//        addRecipeUseCase.add(parameters: parameters) { result in
-//            switch result {
-//            case .success:
-//                self.view?.favorite(recipe: true)
-//            case .failure:
-//                self.view?.favorite(recipe: false)
-//            }
-//        }
+        let recipeParameters = AddRecipeParameters(name: recipe.name, ingredients: recipe.ingredients, id: recipe.id, rate: recipe.rate, time: recipe.time, imageURL: recipe.imageURL)
+        let recipeDetailParameters = AddRecipeDetailParameters(name: recipeDetail.name, ingredients: recipeDetail.ingredients, rate: recipeDetail.rate, time: recipeDetail.time, imageURL: recipeDetail.imageURL)
+        addRecipeUseCase.add(parameters: recipeParameters, detailsParameters: recipeDetailParameters) { result in
+            switch result {
+            case .success:
+                self.view?.favorite(recipe: true)
+            case .failure:
+                self.view?.favorite(recipe: false)
+            }
+        }
     }
 
     func configure(cell: IngredientCellView, forRow row: Int) {

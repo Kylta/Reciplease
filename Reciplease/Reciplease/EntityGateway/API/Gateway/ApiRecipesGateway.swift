@@ -42,7 +42,7 @@ final class ApiRecipesGatewayImplementation: ApiRecipesGateway {
         }
     }
 
-    func add(parameters: AddRecipeParameters, completionHandler: @escaping AddRecipeEntityGatewayCompletionHandler) { }
+    func add(parameters: AddRecipeParameters, detailsParameters: AddRecipeDetailParameters, completionHandler: @escaping AddRecipeEntityGatewayCompletionHandler) { }
 
     func delete(recipe: Recipe, completionHandler: @escaping DeleteRecipeEntityGatewayCompletionHandler) { }
 

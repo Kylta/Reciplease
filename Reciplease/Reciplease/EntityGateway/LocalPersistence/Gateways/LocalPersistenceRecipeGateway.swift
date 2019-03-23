@@ -29,10 +29,11 @@ class CoreDataRecipesGateway: LocalPersistenceRecipesGateway {
         }
     }
 
-    func add(parameters: AddRecipeParameters, completionHandler: @escaping AddRecipeEntityGatewayCompletionHandler) {
+    func add(parameters: AddRecipeParameters, detailsParameters: AddRecipeDetailParameters, completionHandler: @escaping AddRecipeEntityGatewayCompletionHandler) {
         let predicate = NSPredicate(format: "name==%@", parameters.name)
 
-        if let coreDataRecipes = try? viewContext.allEntities(withType: CoreDataRecipe.self, predicate: predicate), let coreDataRecipe = coreDataRecipes.first {
+        if let coreDataRecipes = try? viewContext.allEntities(withType: CoreDataRecipe.self, predicate: predicate),
+            let coreDataRecipe = coreDataRecipes.first {
             delete(recipe: coreDataRecipe.recipe) { _ in }
             completionHandler(.failure(CoreError(message: "Failed adding the recipe, already in data base. Delete it.")))
             return
@@ -43,7 +44,14 @@ class CoreDataRecipesGateway: LocalPersistenceRecipesGateway {
             return
         }
 
+        guard let coreDataRecipeDetail = viewContext.addEntity(withType: CoreDataRecipeDetails.self) else {
+            completionHandler(.failure(CoreError(message: "Failed adding the recipe in the data base")))
+            return
+        }
+
         coreDataRecipe.populate(with: parameters)
+        coreDataRecipeDetail.populate(with: detailsParameters)
+        coreDataRecipe.recipeDetails = coreDataRecipeDetail
 
         do {
             try viewContext.save()

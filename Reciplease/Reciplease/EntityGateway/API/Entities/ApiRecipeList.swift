@@ -28,7 +28,13 @@ internal struct RecipeItemMapper: Decodable {
     let time: Int
     let imageURL: String
     var item: Recipe {
-        return Recipe(name: name, ingredients: ingredients, id: id, rate: rate, time: time, imageURL: imageURL, detail: nil)
+        return Recipe(name: name,
+                      ingredients: ingredients,
+                      id: id,
+                      rate: rate,
+                      time: time,
+                      imageURL: imageURL,
+                      details: nil)
     }
     
     private enum CodingKeys: String, CodingKey {

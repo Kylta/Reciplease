@@ -27,7 +27,8 @@ class ApiClientImplementation: ApiClient {
         Alamofire.request(url)
             .validate(statusCode: 200...299)
             .responseData { response in
-                guard let data = response.data, let httpUrlResponse = response.response else { return
+                guard let data = response.data,
+                    let httpUrlResponse = response.response else { return
                     completion(.failure(response.error!))
                 }
 

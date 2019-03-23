@@ -7,8 +7,18 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="rate" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="recipeDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRecipeDetails" inverseName="recipe" inverseEntity="CoreDataRecipeDetails" syncable="YES"/>
+    </entity>
+    <entity name="CoreDataRecipeDetails" representedClassName="CoreDataRecipeDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ingredients" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rate" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRecipe" inverseName="recipeDetails" inverseEntity="CoreDataRecipe" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CoreDataRecipe" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="CoreDataRecipe" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="CoreDataRecipeDetails" positionX="-45" positionY="45" width="128" height="135"/>
     </elements>
 </model>

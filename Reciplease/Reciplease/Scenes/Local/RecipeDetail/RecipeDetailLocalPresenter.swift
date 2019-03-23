@@ -10,6 +10,7 @@ import Foundation
 
 class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
     fileprivate let recipe: Recipe
+    fileprivate var recipeDetails: RecipeDetail!
     fileprivate let displayRecipesUseCase: DisplayRecipesUseCase
     fileprivate let deleteRecipeUseCase: DeleteRecipeUseCase
     fileprivate weak var view: RecipeDetailView?
@@ -33,16 +34,17 @@ class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
     }
 
     func viewDidLoad() {
+        recipeDetails = recipe.details
         displayRecipesUseCase.displayRecipes { result in
             if case let .success(recipes) = result {
                 self.view?.favorite(recipe: recipes.contains(self.recipe))
             }
         }
 
-        view?.display(time: "\(recipe.time / 60) m")
-        view?.display(rating: recipe.rate)
-        view?.display(recipeName: recipe.name)
-        let recipeImageUrl = recipe.imageURL.replacingOccurrences(of: "90-c", with: "300-c")
+        view?.display(time: "\(recipeDetails.time / 60) m")
+        view?.display(rating: recipeDetails.rate)
+        view?.display(recipeName: recipeDetails.name)
+        let recipeImageUrl = recipeDetails.imageURL.replacingOccurrences(of: "90-c", with: "300-c")
         view?.display(recipeImageUrl: recipeImageUrl)
     }
 
@@ -55,7 +57,7 @@ class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
     }
 
     func configure(cell: IngredientCellView, forRow row: Int) {
-        cell.display(ingredient: recipe.ingredients[row])
+        cell.display(ingredient: recipeDetails.ingredients[row])
     }
 }
 

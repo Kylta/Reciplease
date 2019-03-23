@@ -71,7 +71,7 @@ class RecipesListPresenterImplementation: RecipesListPresenter {
         request.fetchRecipesDetail { [weak self] result in
             switch result {
             case let .success(recipeDetail):
-                recipe.detail = recipeDetail
+                recipe.details = recipeDetail
                 self?.router.presentRecipeDetailView(for: recipe)
             case let .failure(error):
                 print(error)
