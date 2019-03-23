@@ -10,6 +10,8 @@ import Foundation
 
 protocol RecipesListView: class {
     func refreshView()
+    func showLoader()
+    func hideLoader()
     func displayRecipesRetrievalError(title: String, message: String)
 }
 
@@ -64,6 +66,7 @@ class RecipesListPresenterImplementation: RecipesListPresenter {
     }
 
     func didSelect(row: Int) {
+        view?.showLoader()
         var recipe = recipes[row]
         let client = ApiClientImplementation()
         let url = URL(string: "https://api.yummly.com/v1/api/recipe/\(recipe.id ?? "")?_app_id=82f4a536&_app_key=51bc109f3d02f621f3e62397cd754d62")!
@@ -74,10 +77,10 @@ class RecipesListPresenterImplementation: RecipesListPresenter {
                 recipe.details = recipeDetail
                 self?.router.presentRecipeDetailView(for: recipe)
             case let .failure(error):
-                print(error)
+                self?.view?.displayRecipesRetrievalError(title: "Error", message: error.localizedDescription)
             }
+            self?.view?.hideLoader()
         }
-
     }
 
     func configure(cell: RecipesListCellView, forRow row: Int) {

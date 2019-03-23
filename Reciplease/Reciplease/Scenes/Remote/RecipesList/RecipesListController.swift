@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class RecipesListController: UITableViewController, RecipesListView {
+    private let loader = JGProgressHUD(style: .dark)
     var presenter: RecipesListPresenter!
     var configurator: RecipesListConfigurator!
 
@@ -26,6 +28,14 @@ class RecipesListController: UITableViewController, RecipesListView {
 
     @IBAction func cancelButtonPressed(_ sender: Any) {
         presenter.router.dismiss()
+    }
+
+    func showLoader() {
+        loader.show(in: self.view)
+    }
+
+    func hideLoader() {
+        loader.dismiss()
     }
 
     func refreshView() {

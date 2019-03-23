@@ -39,6 +39,10 @@ class RecipesListLocalController: UITableViewController, RecipesListView {
     func displayRecipesRetrievalError(title: String, message: String) {
         presentAlert(title: title, message: message)
     }
+
+    func showLoader() {}
+
+    func hideLoader() {}
 }
 
 extension RecipesListLocalController {
