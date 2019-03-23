@@ -15,4 +15,13 @@ struct Recipe: Equatable {
     let rate: Int
     let time: Int
     let imageURL: String
+    var detail: RecipeDetail?
+}
+
+struct RecipeDetail: Equatable {
+    let name: String
+    let ingredients: [String]
+    let rate: Int
+    let time: Int
+    let imageURL: String
 }

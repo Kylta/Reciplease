@@ -16,7 +16,8 @@ extension CoreDataRecipe {
                       id: id,
                       rate: Int(rate),
                       time: Int(time),
-                      imageURL: imageURL ?? "")
+                      imageURL: imageURL ?? "",
+                      detail: nil)
     }
 
     func populate(with parameters: AddRecipeParameters) {
@@ -26,6 +27,7 @@ extension CoreDataRecipe {
         rate = Int32(parameters.rate)
         time = Int32(parameters.time)
         imageURL = parameters.imageURL
+//        detail = parameters.detail
     }
 
     func populate(with recipe: Recipe) {

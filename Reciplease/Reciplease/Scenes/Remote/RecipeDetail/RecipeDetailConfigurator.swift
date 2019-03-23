@@ -13,10 +13,10 @@ protocol RecipeDetailConfigurator {
 }
 
 class RecipeDetailConfiguratorImplementation: RecipeDetailConfigurator {
-    let recipe: Recipe
+    let recipeDetail: RecipeDetail
 
-    init(recipe: Recipe) {
-        self.recipe = recipe
+    init(recipeDetail: RecipeDetail) {
+        self.recipeDetail = recipeDetail
     }
 
     func configure(recipeDetailView: RecipeDetailView) {
@@ -26,7 +26,7 @@ class RecipeDetailConfiguratorImplementation: RecipeDetailConfigurator {
         let addRecipeUseCase = AddRecipeUseCaseImplementation(recipesGateway: recipesGateway)
         let displayRecipeUseCase = DisplayRecipesListUseCaseImplementation(recipeGateway: recipesGateway)
         let recipeDetailController = recipeDetailView as! RecipeDetailController
-        let presenter = RecipeDetailPresenterImplementation(view: recipeDetailController, addRecipeUseCase: addRecipeUseCase, displayRecipesUseCase: displayRecipeUseCase, recipe: recipe)
+        let presenter = RecipeDetailPresenterImplementation(view: recipeDetailController, addRecipeUseCase: addRecipeUseCase, displayRecipesUseCase: displayRecipeUseCase, recipeDetail: recipeDetail)
         recipeDetailController.presenter = presenter
     }
 }

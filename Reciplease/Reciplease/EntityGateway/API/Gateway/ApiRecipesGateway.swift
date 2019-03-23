@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ApiRecipesGateway: RecipesGateway {}
+protocol ApiRecipesGateway: RecipesGateway, RecipeDetailGateway {}
 
 final class ApiRecipesGatewayImplementation: ApiRecipesGateway {
     private let url: URL
@@ -23,6 +23,8 @@ final class ApiRecipesGatewayImplementation: ApiRecipesGateway {
         self.url = url
         self.client = client
     }
+
+    // RecipeList
 
     func fetchRecipes(completionHandler: @escaping FetchRecipesEntityGatewayCompletionHandler) {
         client.get(from: url) { result in
@@ -43,4 +45,23 @@ final class ApiRecipesGatewayImplementation: ApiRecipesGateway {
     func add(parameters: AddRecipeParameters, completionHandler: @escaping AddRecipeEntityGatewayCompletionHandler) { }
 
     func delete(recipe: Recipe, completionHandler: @escaping DeleteRecipeEntityGatewayCompletionHandler) { }
+
+    // RecipeDetail
+
+    func fetchRecipesDetail(completionHandler: @escaping FetchRecipeDetailEntityGatewayCompletionHandler) {
+        client.get(from: url) { result in
+
+            switch result {
+            case let .success(data, response):
+                let result = RecipeDetailItemMapper.map(data, response)
+                guard let recipes = try? result.dematerialize() else { return
+                    completionHandler(.failure(ApiRecipesGatewayImplementation.Error.invalidData))
+                }
+                completionHandler(.success(recipes))
+            case let .failure(error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
+
 }

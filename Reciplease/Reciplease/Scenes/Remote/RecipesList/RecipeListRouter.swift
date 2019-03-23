@@ -9,13 +9,13 @@
 import UIKit
 
 protocol RecipesListViewRouter: ViewRouter {
-    func presentRecipeDetailView(for recipe: Recipe)
+    func presentRecipeDetailView(for recipeDetail: RecipeDetail)
     func dismiss()
 }
 
 class RecipesListRouterImplementation: RecipesListViewRouter {
     fileprivate weak var recipesListController: RecipesListController?
-    fileprivate var recipe: Recipe!
+    fileprivate var recipeDetail: RecipeDetail!
 
     init(recipesListController: RecipesListController) {
         self.recipesListController = recipesListController
@@ -27,14 +27,14 @@ class RecipesListRouterImplementation: RecipesListViewRouter {
         recipesListController?.navigationController?.dismiss(animated: true, completion: nil)
     }
 
-    func presentRecipeDetailView(for recipe: Recipe) {
-        self.recipe = recipe
+    func presentRecipeDetailView(for recipeDetail: RecipeDetail) {
+        self.recipeDetail = recipeDetail
         recipesListController?.performSegue(withIdentifier: "RecipesListSceneToRecipeDetailSceneSegue", sender: nil)
     }
 
     func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let recipeDetailController = segue.destination as? RecipeDetailController {
-            recipeDetailController.configurator = RecipeDetailConfiguratorImplementation(recipe: recipe)
+            recipeDetailController.configurator = RecipeDetailConfiguratorImplementation(recipeDetail: recipeDetail)
         }
     }
 }

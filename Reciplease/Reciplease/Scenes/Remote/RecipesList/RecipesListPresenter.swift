@@ -64,8 +64,20 @@ class RecipesListPresenterImplementation: RecipesListPresenter {
     }
 
     func didSelect(row: Int) {
-        let recipe = recipes[row]
-        self.router.presentRecipeDetailView(for: recipe)
+        var recipe = recipes[row]
+        let client = ApiClientImplementation()
+        let url = URL(string: "https://api.yummly.com/v1/api/recipe/\(recipe.id ?? "")?_app_id=82f4a536&_app_key=51bc109f3d02f621f3e62397cd754d62")!
+        let request = ApiRecipesGatewayImplementation(url: url, client: client)
+        request.fetchRecipesDetail { [weak self] result in
+            switch result {
+            case let .success(recipeDetail):
+                recipe.detail = recipeDetail
+                self?.router.presentRecipeDetailView(for: recipeDetail)
+            case let .failure(error):
+                print(error)
+            }
+        }
+
     }
 
     func configure(cell: RecipesListCellView, forRow row: Int) {
@@ -73,7 +85,7 @@ class RecipesListPresenterImplementation: RecipesListPresenter {
         let recipeImageUrl = recipe.imageURL.replacingOccurrences(of: "90-c", with: "300-c")
         cell.display(recipeName: recipe.name)
         cell.display(recipesIngredients: recipe.ingredients.joined(separator: ", "))
-        cell.display(time: "\(recipe.time / 60) m")
+        cell.display(time: "\(recipe.time / 60) min")
         cell.display(rating: recipe.rate)
         cell.display(recipeImageUrl: recipeImageUrl)
     }

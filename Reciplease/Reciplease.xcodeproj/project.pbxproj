@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4125884C80CBB967054EDEC0 /* Pods_RecipleaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F55E5A1A79A43D40ADA0D55 /* Pods_RecipleaseTests.framework */; };
+		465332332246163F001BCD91 /* ApiRecipeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465332322246163F001BCD91 /* ApiRecipeDetail.swift */; };
 		4656CE262243EFEB000ED1D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE252243EFEB000ED1D1 /* AppDelegate.swift */; };
 		4656CE282243EFEB000ED1D1 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE272243EFEB000ED1D1 /* SearchController.swift */; };
 		4656CE2B2243EFEB000ED1D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4656CE292243EFEB000ED1D1 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		4656CE7A224410E9000ED1D1 /* UITextField+bottomBoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE79224410E9000ED1D1 /* UITextField+bottomBoder.swift */; };
 		4656CE7E22442842000ED1D1 /* IngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4656CE7D22442842000ED1D1 /* IngredientCell.xib */; };
 		4656CE80224428B1000ED1D1 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE7F224428B1000ED1D1 /* IngredientCell.swift */; };
+		4678660722461ECC00DB4580 /* JSONDecoder+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4678660622461ECC00DB4580 /* JSONDecoder+helper.swift */; };
 		468F28B9224429F800D7B772 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F28B8224429F800D7B772 /* UITableViewExtensions.swift */; };
 		468F28C0224434BC00D7B772 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F28BF224434BC00D7B772 /* SearchPresenter.swift */; };
 		468F28C22244363F00D7B772 /* SearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F28C12244363F00D7B772 /* SearchConfigurator.swift */; };
@@ -73,6 +75,7 @@
 /* Begin PBXFileReference section */
 		2319572DB2F151CA32AC9F1C /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 		2ABD0A05DCF8FACD9D9F7ED6 /* Pods-RecipleaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipleaseTests.release.xcconfig"; path = "Target Support Files/Pods-RecipleaseTests/Pods-RecipleaseTests.release.xcconfig"; sourceTree = "<group>"; };
+		465332322246163F001BCD91 /* ApiRecipeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRecipeDetail.swift; sourceTree = "<group>"; };
 		4656CE222243EFEB000ED1D1 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4656CE252243EFEB000ED1D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4656CE272243EFEB000ED1D1 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		4656CE79224410E9000ED1D1 /* UITextField+bottomBoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+bottomBoder.swift"; sourceTree = "<group>"; };
 		4656CE7D22442842000ED1D1 /* IngredientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCell.xib; sourceTree = "<group>"; };
 		4656CE7F224428B1000ED1D1 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
+		4678660622461ECC00DB4580 /* JSONDecoder+helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+helper.swift"; sourceTree = "<group>"; };
 		468F28B8224429F800D7B772 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
 		468F28BF224434BC00D7B772 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		468F28C12244363F00D7B772 /* SearchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConfigurator.swift; sourceTree = "<group>"; };
@@ -274,6 +278,7 @@
 				4656CE6E2243F8B4000ED1D1 /* Gateway */,
 				4656CE682243F7AB000ED1D1 /* Entities */,
 				4656CE712243FD1F000ED1D1 /* ApiClient.swift */,
+				4678660622461ECC00DB4580 /* JSONDecoder+helper.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				4656CE692243F7B2000ED1D1 /* ApiRecipeList.swift */,
+				465332322246163F001BCD91 /* ApiRecipeDetail.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -635,11 +641,13 @@
 				468F28B9224429F800D7B772 /* UITableViewExtensions.swift in Sources */,
 				4656CE622243F512000ED1D1 /* LocalPersistenceRecipeGateway.swift in Sources */,
 				468F28D92244D98C00D7B772 /* RecipeListRouter.swift in Sources */,
+				4678660722461ECC00DB4580 /* JSONDecoder+helper.swift in Sources */,
 				4656CE262243EFEB000ED1D1 /* AppDelegate.swift in Sources */,
 				468F28D12244C61800D7B772 /* RecipesListConfigurator.swift in Sources */,
 				4656CE4B2243F032000ED1D1 /* Recipe.swift in Sources */,
 				4696E9F2224545B500BBC312 /* RecipeListLocalRouter.swift in Sources */,
 				4656CE4E2243F069000ED1D1 /* RecipesGateway.swift in Sources */,
+				465332332246163F001BCD91 /* ApiRecipeDetail.swift in Sources */,
 				4696E9FA2245595900BBC312 /* RecipeDetailLocalController.swift in Sources */,
 				4696E9F6224546CB00BBC312 /* RecipesListLocalConfigurator.swift in Sources */,
 				468F28CA2244C28C00D7B772 /* SearchViewRouter.swift in Sources */,

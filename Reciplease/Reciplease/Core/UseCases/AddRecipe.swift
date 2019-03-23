@@ -21,6 +21,7 @@ struct AddRecipeParameters {
     let rate: Int
     let time: Int
     let imageURL: String
+    let detail: RecipeDetail?
 }
 
 class AddRecipeUseCaseImplementation: AddRecipeUseCase {

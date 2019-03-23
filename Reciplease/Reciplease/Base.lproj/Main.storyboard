@@ -216,7 +216,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Yw-nZ-W9R">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="4Yw-nZ-W9R">
                                 <rect key="frame" x="0.0" y="64" width="375" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="c1F-Tf-JBi"/>
@@ -449,7 +449,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bwj-Aa-ETm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="bwj-Aa-ETm">
                                 <rect key="frame" x="0.0" y="64" width="375" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="Ja7-4O-rOW"/>
@@ -609,6 +609,7 @@
     </scenes>
     <resources>
         <image name="green star" width="100" height="100"/>
+        <image name="placeholder" width="3734" height="3926"/>
         <image name="timer" width="120" height="120"/>
         <image name="white star" width="100" height="100"/>
     </resources>

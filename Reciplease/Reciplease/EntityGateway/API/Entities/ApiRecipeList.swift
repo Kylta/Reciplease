@@ -28,7 +28,7 @@ internal struct RecipeItemMapper: Decodable {
     let time: Int
     let imageURL: String
     var item: Recipe {
-        return Recipe(name: name, ingredients: ingredients, id: id, rate: rate, time: time, imageURL: imageURL)
+        return Recipe(name: name, ingredients: ingredients, id: id, rate: rate, time: time, imageURL: imageURL, detail: nil)
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -46,14 +46,14 @@ internal struct RecipeItemMapper: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let imageURLContainer = try container.nestedContainer(keyedBy: ImageURLCodingKeys.self, forKey: .imageUrlsBySize)
         
-        name = try container.decode(String.self, forKey: .name)
-        ingredients = try container.decode([String].self, forKey: .ingredients)
-        rate = try container.decode(Int.self, forKey: .rate)
-        time = try container.decode(Int.self, forKey: .time)
-        
-        id = try container.decodeIfPresent(String.self, forKey: .id)
-        
-        imageURL = try imageURLContainer.decode(String.self, forKey: .imageURL)
+        name = try container.decode(key: .name)
+        ingredients = try container.decode(key: .ingredients)
+        rate = try container.decode(key: .rate)
+        time = try container.decode(key: .time)
+        imageURL = try imageURLContainer.decode(key: .imageURL)
+
+        id = try container.decodeIfPresent(key: .id)
+
     }
     
     static var OK_200: Int { return 200 }

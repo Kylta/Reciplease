@@ -24,53 +24,53 @@ protocol RecipeDetailPresenter {
 }
 
 class RecipeDetailPresenterImplementation: RecipeDetailPresenter {
-    fileprivate let recipe: Recipe
+    fileprivate let recipeDetail: RecipeDetail
     fileprivate let addRecipeUseCase: AddRecipeUseCase
     fileprivate let displayRecipesUseCase: DisplayRecipesUseCase
     fileprivate weak var view: RecipeDetailView?
 
     var numberOfIngredients: Int {
-        return recipe.ingredients.count
+        return recipeDetail.ingredients.count
     }
 
     init(view: RecipeDetailView,
          addRecipeUseCase: AddRecipeUseCase,
          displayRecipesUseCase: DisplayRecipesUseCase,
-         recipe: Recipe) {
+         recipeDetail: RecipeDetail) {
         self.view = view
         self.addRecipeUseCase = addRecipeUseCase
         self.displayRecipesUseCase = displayRecipesUseCase
-        self.recipe = recipe
+        self.recipeDetail = recipeDetail
     }
 
     func viewDidLoad() {
-        displayRecipesUseCase.displayRecipes { result in
-            if case let .success(recipes) = result {
-                self.view?.favorite(recipe: recipes.contains(self.recipe))
-            }
-        }
+//        displayRecipesUseCase.displayRecipes { result in
+//            if case let .success(recipes) = result {
+//                self.view?.favorite(recipe: recipes.contains(self.recipeDetail))
+//            }
+//        }
 
-        view?.display(time: "\(recipe.time / 60) m")
-        view?.display(rating: recipe.rate)
-        view?.display(recipeName: recipe.name)
-        let recipeImageUrl = recipe.imageURL.replacingOccurrences(of: "90-c", with: "300-c")
+        view?.display(time: "\(recipeDetail.time / 60) min")
+        view?.display(rating: recipeDetail.rate)
+        view?.display(recipeName: recipeDetail.name)
+        let recipeImageUrl = recipeDetail.imageURL.replacingOccurrences(of: "90-c", with: "300-c")
         view?.display(recipeImageUrl: recipeImageUrl)
     }
 
     func favoritesButtonPressed() {
-        let parameters = AddRecipeParameters(name: recipe.name, ingredients: recipe.ingredients, id: recipe.id, rate: recipe.rate, time: recipe.time, imageURL: recipe.imageURL)
-        addRecipeUseCase.add(parameters: parameters) { result in
-            switch result {
-            case .success:
-                self.view?.favorite(recipe: true)
-            case .failure:
-                self.view?.favorite(recipe: false)
-            }
-        }
+//        let parameters = AddRecipeParameters(name: recipeDetail.name, ingredients: recipeDetail.ingredients, id: recipe.id, rate: recipe.rate, time: recipe.time, imageURL: recipe.imageURL, detail: recipe.detail)
+//        addRecipeUseCase.add(parameters: parameters) { result in
+//            switch result {
+//            case .success:
+//                self.view?.favorite(recipe: true)
+//            case .failure:
+//                self.view?.favorite(recipe: false)
+//            }
+//        }
     }
 
     func configure(cell: IngredientCellView, forRow row: Int) {
-        cell.display(ingredient: recipe.ingredients[row])
+        cell.display(ingredient: recipeDetail.ingredients[row])
     }
 }
 
