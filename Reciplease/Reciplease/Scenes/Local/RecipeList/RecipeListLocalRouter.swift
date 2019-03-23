@@ -20,8 +20,8 @@ class RecipesListLocalRouterImplementation: RecipesListViewRouter {
 
     func dismiss() { }
 
-    func presentRecipeDetailView(for recipeDetail: RecipeDetail) {
-        self.recipe.detail = recipeDetail
+    func presentRecipeDetailView(for recipe: Recipe) {
+        self.recipe = recipe
         recipesListController?.performSegue(withIdentifier: "RecipesListLocalSceneToRecipeDetailLocalSceneSegue", sender: nil)
     }
 

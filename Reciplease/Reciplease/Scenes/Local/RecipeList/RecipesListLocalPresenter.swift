@@ -47,11 +47,8 @@ class RecipesListLocalPresenterImplementation: RecipesListPresenter, RecipeListL
     }
 
     func didSelect(row: Int) {
-        if let recipeDetail = recipes[row].detail {
-            self.router.presentRecipeDetailView(for: recipeDetail)
-        } else {
-            //// show alert
-        }
+        let recipe = recipes[row]
+        self.router.presentRecipeDetailView(for: recipe)
     }
 
     func configure(cell: RecipesListCellView, forRow row: Int) {

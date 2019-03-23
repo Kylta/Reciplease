@@ -24,7 +24,8 @@ protocol RecipeDetailPresenter {
 }
 
 class RecipeDetailPresenterImplementation: RecipeDetailPresenter {
-    fileprivate let recipeDetail: RecipeDetail
+    fileprivate let recipe: Recipe
+    fileprivate var recipeDetail: RecipeDetail!
     fileprivate let addRecipeUseCase: AddRecipeUseCase
     fileprivate let displayRecipesUseCase: DisplayRecipesUseCase
     fileprivate weak var view: RecipeDetailView?
@@ -36,14 +37,15 @@ class RecipeDetailPresenterImplementation: RecipeDetailPresenter {
     init(view: RecipeDetailView,
          addRecipeUseCase: AddRecipeUseCase,
          displayRecipesUseCase: DisplayRecipesUseCase,
-         recipeDetail: RecipeDetail) {
+         recipe: Recipe) {
         self.view = view
         self.addRecipeUseCase = addRecipeUseCase
         self.displayRecipesUseCase = displayRecipesUseCase
-        self.recipeDetail = recipeDetail
+        self.recipe = recipe
     }
 
     func viewDidLoad() {
+        recipeDetail = recipe.detail
 //        displayRecipesUseCase.displayRecipes { result in
 //            if case let .success(recipes) = result {
 //                self.view?.favorite(recipe: recipes.contains(self.recipeDetail))

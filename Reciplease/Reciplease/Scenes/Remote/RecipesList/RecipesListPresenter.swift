@@ -72,7 +72,7 @@ class RecipesListPresenterImplementation: RecipesListPresenter {
             switch result {
             case let .success(recipeDetail):
                 recipe.detail = recipeDetail
-                self?.router.presentRecipeDetailView(for: recipeDetail)
+                self?.router.presentRecipeDetailView(for: recipe)
             case let .failure(error):
                 print(error)
             }
