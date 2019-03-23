@@ -91,23 +91,19 @@
                                         <rect key="frame" x="0.0" y="23" width="87" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMj-ZW-7dd">
-                                                <rect key="frame" x="0.0" y="0.0" width="42" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="59" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="XGs-ZD-PXv">
-                                                <rect key="frame" x="50" y="0.0" width="20" height="20"/>
+                                                <rect key="frame" x="67" y="0.0" width="20" height="20"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="45R-BW-dXB"/>
                                                     <constraint firstAttribute="height" constant="20" id="Bqb-aQ-AwB"/>
                                                 </constraints>
                                             </imageView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TjK-YA-fLw">
-                                                <rect key="frame" x="78" y="0.0" width="9" height="20"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>

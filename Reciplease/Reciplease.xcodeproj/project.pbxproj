@@ -59,6 +59,7 @@
 		4696E9FC2245597700BBC312 /* RecipeDetailLocalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4696E9FB2245597700BBC312 /* RecipeDetailLocalPresenter.swift */; };
 		4696E9FE22455A3200BBC312 /* RecipeDetailLocalConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4696E9FD22455A3200BBC312 /* RecipeDetailLocalConfigurator.swift */; };
 		4696EA0422457D4900BBC312 /* RecipeDetailLocalViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4696EA0322457D4900BBC312 /* RecipeDetailLocalViewRouter.swift */; };
+		46EA76B42246D4D900E1D88A /* DateComponentsFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EA76B32246D4D900E1D88A /* DateComponentsFormatterExtensions.swift */; };
 		B01A94F55C61870907A52547 /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A82F7CDC8064E368B15D55 /* Pods_Reciplease.framework */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,7 @@
 		4696E9FB2245597700BBC312 /* RecipeDetailLocalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailLocalPresenter.swift; sourceTree = "<group>"; };
 		4696E9FD22455A3200BBC312 /* RecipeDetailLocalConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailLocalConfigurator.swift; sourceTree = "<group>"; };
 		4696EA0322457D4900BBC312 /* RecipeDetailLocalViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailLocalViewRouter.swift; sourceTree = "<group>"; };
+		46EA76B32246D4D900E1D88A /* DateComponentsFormatterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponentsFormatterExtensions.swift; sourceTree = "<group>"; };
 		9F55E5A1A79A43D40ADA0D55 /* Pods_RecipleaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipleaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C8AB84C5BBBBF3CFC15713 /* Pods-RecipleaseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipleaseTests.debug.xcconfig"; path = "Target Support Files/Pods-RecipleaseTests/Pods-RecipleaseTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E2A82F7CDC8064E368B15D55 /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -338,6 +340,7 @@
 				468F28C52244421900D7B772 /* UIViewExtensions.swift */,
 				468F28C722444E3C00D7B772 /* UIViewControllerExtensions.swift */,
 				468F28DA2244E8B500D7B772 /* UIImageViewExtensions.swift */,
+				46EA76B32246D4D900E1D88A /* DateComponentsFormatterExtensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				468F28D92244D98C00D7B772 /* RecipeListRouter.swift in Sources */,
 				4678660722461ECC00DB4580 /* JSONDecoder+helper.swift in Sources */,
 				4656CE262243EFEB000ED1D1 /* AppDelegate.swift in Sources */,
+				46EA76B42246D4D900E1D88A /* DateComponentsFormatterExtensions.swift in Sources */,
 				468F28D12244C61800D7B772 /* RecipesListConfigurator.swift in Sources */,
 				4656CE4B2243F032000ED1D1 /* Recipe.swift in Sources */,
 				4696E9F2224545B500BBC312 /* RecipeListLocalRouter.swift in Sources */,

@@ -88,7 +88,7 @@ class RecipesListPresenterImplementation: RecipesListPresenter {
         let recipeImageUrl = recipe.imageURL.replacingOccurrences(of: "90-c", with: "500-c")
         cell.display(recipeName: recipe.name)
         cell.display(recipesIngredients: recipe.ingredients.joined(separator: ", "))
-        cell.display(time: "\(recipe.time / 60) min")
+        cell.display(time: recipe.time.timeFormmater)
         cell.display(rating: recipe.rate)
         cell.display(recipeImageUrl: recipeImageUrl)
     }
