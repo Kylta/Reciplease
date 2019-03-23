@@ -37,7 +37,7 @@ class RecipesListLocalPresenterImplementation: RecipesListPresenter, RecipeListL
             case let .success(recipes):
                 self.checkRecipesNoneEmpty(recipes: recipes)
             case let .failure(error):
-                print(error)
+                self.view?.displayRecipesRetrievalError(title: "Error", message: error.localizedDescription)
             }
         }
     }
@@ -64,7 +64,7 @@ class RecipesListLocalPresenterImplementation: RecipesListPresenter, RecipeListL
     fileprivate func checkRecipesNoneEmpty(recipes: [Recipe]) {
         if recipes.isEmpty {
             refreshViewWith(recipes)
-            view?.displayRecipesRetrievalError(title: "You have no favorites", message: "Go search recipe and at them to your favorites")
+            view?.displayRecipesRetrievalError(title: "You have no favorites", message: "Add your favorite recipes to your favorites")
         } else {
             refreshViewWith(recipes)
         }

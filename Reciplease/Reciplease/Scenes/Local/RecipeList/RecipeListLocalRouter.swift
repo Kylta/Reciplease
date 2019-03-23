@@ -18,9 +18,7 @@ class RecipesListLocalRouterImplementation: RecipesListViewRouter {
 
     // MARK: - RecipesListRouter
 
-    func dismiss() {
-        recipesListController?.navigationController?.dismiss(animated: true, completion: nil)
-    }
+    func dismiss() { }
 
     func presentRecipeDetailView(for recipe: Recipe) {
         self.recipe = recipe
