@@ -50,7 +50,6 @@ final class ApiRecipesGatewayImplementation: ApiRecipesGateway {
 
     func fetchRecipesDetail(completionHandler: @escaping FetchRecipeDetailEntityGatewayCompletionHandler) {
         client.get(from: url) { result in
-
             switch result {
             case let .success(data, response):
                 let result = RecipeDetailItemMapper.map(data, response)

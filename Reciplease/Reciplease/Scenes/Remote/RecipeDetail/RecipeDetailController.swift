@@ -22,16 +22,17 @@ class RecipeDetailController: UIViewController, RecipeDetailView, SFSafariViewCo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
-
         configurator.configure(recipeDetailView: self)
         presenter.viewDidLoad()
+
+        setupTableView()
     }
 
     private func setupTableView() {
         ingredientsTableView.rowHeight = UITableView.automaticDimension
         ingredientsTableView.estimatedRowHeight = UITableView.automaticDimension
         ingredientsTableView.separatorStyle = .singleLine
+        ingredientsTableView.tableFooterView = UIView()
         ingredientsTableView.register(IngredientCell.self)
     }
 
