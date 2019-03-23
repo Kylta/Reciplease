@@ -14,12 +14,14 @@ protocol RecipeDetailView: class {
     func display(rating: Int)
     func display(time: String)
     func favorite(recipe: Bool)
+    func presentSafari(url: URL)
 }
 
 protocol RecipeDetailPresenter {
     var numberOfIngredients: Int { get }
     func viewDidLoad()
     func favoritesButtonPressed()
+    func getDirectionsPressed()
     func configure(cell: IngredientCellView, forRow row: Int)
 }
 
@@ -59,9 +61,15 @@ class RecipeDetailPresenterImplementation: RecipeDetailPresenter {
         view?.display(recipeImageUrl: recipeImageUrl)
     }
 
+    func getDirectionsPressed() {
+        let url = URL(string: recipeDetail.recipeURL)!
+        view?.presentSafari(url: url)
+    }
+
+
     func favoritesButtonPressed() {
         let recipeParameters = AddRecipeParameters(name: recipe.name, ingredients: recipe.ingredients, id: recipe.id, rate: recipe.rate, time: recipe.time, imageURL: recipe.imageURL)
-        let recipeDetailParameters = AddRecipeDetailParameters(name: recipeDetail.name, ingredients: recipeDetail.ingredients, rate: recipeDetail.rate, time: recipeDetail.time, imageURL: recipeDetail.imageURL)
+        let recipeDetailParameters = AddRecipeDetailParameters(name: recipeDetail.name, ingredients: recipeDetail.ingredients, rate: recipeDetail.rate, time: recipeDetail.time, imageURL: recipeDetail.imageURL, recipeURL: recipeDetail.recipeURL)
         addRecipeUseCase.add(parameters: recipeParameters, detailsParameters: recipeDetailParameters) { result in
             switch result {
             case .success:

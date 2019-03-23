@@ -48,6 +48,11 @@ class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
         view?.display(recipeImageUrl: recipeImageUrl)
     }
 
+    func getDirectionsPressed() {
+        let url = URL(string: recipeDetails.recipeURL)!
+        view?.presentSafari(url: url)
+    }
+
     func favoritesButtonPressed() {
         deleteRecipeUseCase.delete(recipe: recipe) { result in
             if case .success = result {

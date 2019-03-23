@@ -15,7 +15,8 @@ extension CoreDataRecipe {
                                    ingredients: recipeDetails?.ingredients ?? [],
                                    rate: Int(recipeDetails?.rate ?? 0),
                                    time: Int(recipeDetails?.time ?? 0),
-                                   imageURL: recipeDetails?.imageURL ?? "")
+                                   imageURL: recipeDetails?.imageURL ?? "",
+                                   recipeURL: recipeDetails?.recipeURL ?? "")
         return Recipe(name: name ?? "",
                       ingredients: ingredients ?? [],
                       id: id,
@@ -49,7 +50,8 @@ extension CoreDataRecipeDetails {
         return RecipeDetail(name: name ?? "",
                             ingredients: ingredients ?? [],
                             rate: Int(rate), time: Int(time),
-                            imageURL: imageURL ?? "")
+                            imageURL: imageURL ?? "",
+                            recipeURL: recipeURL ?? "")
     }
 
     func populate(with parameters: AddRecipeDetailParameters) {
@@ -58,6 +60,7 @@ extension CoreDataRecipeDetails {
         rate = Int32(parameters.rate)
         time = Int32(parameters.time)
         imageURL = parameters.imageURL
+        recipeURL = parameters.recipeURL
     }
 
     func populate(with recipeDetail: RecipeDetail) {
@@ -66,5 +69,6 @@ extension CoreDataRecipeDetails {
         rate = Int32(recipeDetail.rate)
         time = Int32(recipeDetail.time)
         imageURL = recipeDetail.imageURL
+        recipeURL = recipeDetail.recipeURL
     }
 }

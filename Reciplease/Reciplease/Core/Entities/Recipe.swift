@@ -34,4 +34,5 @@ struct RecipeDetail: Equatable {
     let rate: Int
     let time: Int
     let imageURL: String
+    let recipeURL: String
 }
