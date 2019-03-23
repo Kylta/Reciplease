@@ -39,12 +39,8 @@ class CoreDataRecipesGateway: LocalPersistenceRecipesGateway {
             return
         }
 
-        guard let coreDataRecipe = viewContext.addEntity(withType: CoreDataRecipe.self) else {
-            completionHandler(.failure(CoreError(message: "Failed adding the recipe in the data base")))
-            return
-        }
-
-        guard let coreDataRecipeDetail = viewContext.addEntity(withType: CoreDataRecipeDetails.self) else {
+        guard let coreDataRecipe = viewContext.addEntity(withType: CoreDataRecipe.self),
+            let coreDataRecipeDetail = viewContext.addEntity(withType: CoreDataRecipeDetails.self) else {
             completionHandler(.failure(CoreError(message: "Failed adding the recipe in the data base")))
             return
         }
