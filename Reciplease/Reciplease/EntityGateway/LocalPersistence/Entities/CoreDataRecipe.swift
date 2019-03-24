@@ -12,11 +12,11 @@ import CoreData
 extension CoreDataRecipe {
     var recipe: Recipe {
         let recipeNutritions = recipeDetails?.nutritions?.allObjects as? [CoreDataRecipeNutritions]
-        let recipeNutritionsMapped = recipeNutritions.map { $0.map { RecipeNutritions(value: $0.value ,
+        let recipeNutritionsMapped = recipeNutritions.map { $0.map { RecipeNutritions(value: $0.value,
+                                                                                      attribute: $0.attribute ?? "",
                                                                                       name: $0.name ?? "",
                                                                                       abbreviation: $0.abbreviation ?? "",
-                                                                                      plural: $0.abbreviation ?? "",
-                                                                                      pluralAbbreviation: $0.pluralAbbreviation ?? "") } }!
+                                                                                      description: $0.detail) } }!
 
         let details = RecipeDetail(name: recipeDetails?.name ?? "",
                                    ingredients: recipeDetails?.ingredients ?? [],
@@ -85,26 +85,25 @@ extension CoreDataRecipeDetails {
 extension CoreDataRecipeNutritions {
     var recipeNutritions: RecipeNutritions {
         return RecipeNutritions(value: value,
+                                attribute: attribute ?? "",
                                 name: name ?? "",
                                 abbreviation: abbreviation ?? "",
-                                plural: plural ?? "",
-                                pluralAbbreviation: pluralAbbreviation ?? ""
-        )
+                                description: detail)
     }
 
     func populate(with parameters: AddRecipeNutritionsParameters) {
         value = parameters.value
         name = parameters.name
         abbreviation = parameters.abbreviation
-        plural = parameters.plural
-        pluralAbbreviation = parameters.pluralAbbreviation
+        detail = parameters.description
+        attribute = parameters.attribute
     }
 
-    func populate(with recipeDetail: RecipeNutritions) {
-        value = recipeDetail.value
-        name = recipeDetail.name
-        abbreviation = recipeDetail.abbreviation
-        plural = recipeDetail.plural
-        pluralAbbreviation = recipeDetail.pluralAbbreviation
+    func populate(with recipeNutrition: RecipeNutritions) {
+        value = recipeNutrition.value
+        name = recipeNutrition.name
+        abbreviation = recipeNutrition.abbreviation
+        detail = recipeNutrition.description
+        attribute = recipeNutrition.attribute
     }
 }

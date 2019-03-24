@@ -15,9 +15,10 @@ class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
     fileprivate let deleteRecipeUseCase: DeleteRecipeUseCase
     fileprivate weak var view: RecipeDetailView?
     private(set) var router: RecipeDetailLocalViewRouter
+    fileprivate var recipeNutritions = [RecipeNutritions]()
 
-    var numberOfIngredients: Int {
-        return recipe.ingredients.count
+    var numberOfRows: (ingredients: Int, total: Int) {
+        return (recipeDetails.ingredients.count, recipeDetails.ingredients.count + recipeNutritions.count)
     }
 
     init(view: RecipeDetailView,
@@ -47,6 +48,20 @@ class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
             }
         }
 
+        recipeNutritions = recipeDetails.nutritions.filter {
+            $0.attribute == "K"
+                || $0.attribute == "NA"
+                || $0.attribute == "CHOLE"
+                || $0.attribute == "FIBTG"
+                || $0.attribute == "FATRN"
+                || $0.attribute == "PROCNT"
+                || $0.attribute == "VITC"
+                || $0.attribute == "CA"
+                || $0.attribute == "SUGAR"
+                || $0.attribute == "ENERC_KCAL"
+                || $0.attribute == "FAT"
+        }
+
         view?.display(time: "\(recipeDetails.time / 60) m")
         view?.display(rating: recipeDetails.rate)
         view?.display(recipeName: recipeDetails.name)
@@ -68,11 +83,17 @@ class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
     }
 
     func configure(cell: IngredientCellView, forRow row: Int) {
-//        if recipeDetails?.ingredients {
-//            cell.display(ingredient: recipeDetails.ingredients[row])
-//        } else if recipeDetails?.nutritions {
-//            cell.display(ingredient: recipeDetails.nutritions[row].name)
-//        }
+        cell.display(ingredient: recipeDetails.ingredients[row])
+    }
+
+    func configure(cell: NutritionCellView, forRow row: Int) {
+        let nutritionsRow = row - recipeDetails.ingredients.count
+        let nutritions = recipeNutritions[nutritionsRow]
+
+        cell.display(name: nutritions.attribute)
+        cell.display(description: nutritions.description ?? "")
+        cell.display(value: String(nutritions.value))
+        cell.display(abbreviation: nutritions.abbreviation)
     }
 
     fileprivate func registerForDeleteRecipeNotification() {
@@ -91,5 +112,6 @@ class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
     fileprivate func handleRecipeDeleted() {
         router.dismiss()
     }
+
 }
 

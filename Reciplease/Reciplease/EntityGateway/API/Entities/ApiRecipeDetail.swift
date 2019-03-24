@@ -28,14 +28,15 @@ internal struct RecipeDetailItemMapper: Decodable {
 
     class Nutritions: Decodable {
         let value: Double
+        let attribute: String
+        let description: String?
         let unit: Unit
         var nutritions: RecipeNutritions {
             return RecipeNutritions(value: value,
+                                    attribute: attribute,
                                     name: unit.name,
                                     abbreviation: unit.abbreviation,
-                                    plural: unit.plural,
-                                    pluralAbbreviation: unit.pluralAbbreviation
-            )
+                                    description: description ?? "")
         }
 
         class Unit: Decodable {

@@ -9,11 +9,6 @@
 import UIKit
 import SafariServices
 
-enum CellType {
-    case ingredient
-    case nutrition
-}
-
 class RecipeDetailLocalController: UIViewController, RecipeDetailView, SFSafariViewControllerDelegate {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
@@ -39,6 +34,7 @@ class RecipeDetailLocalController: UIViewController, RecipeDetailView, SFSafariV
         ingredientsTableView.separatorStyle = .singleLine
         ingredientsTableView.tableFooterView = UIView()
         ingredientsTableView.register(IngredientCell.self)
+        ingredientsTableView.register(NutritionCell.self)
     }
 
     @IBAction func saveButtonPressed(_ sender: Any) {
@@ -84,14 +80,24 @@ class RecipeDetailLocalController: UIViewController, RecipeDetailView, SFSafariV
     }
 }
 
-extension RecipeDetailLocalController: UITableViewDataSource {
+extension RecipeDetailLocalController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfIngredients
+        return presenter.numberOfRows.total
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return ""
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(IngredientCell.self)!
-        presenter.configure(cell: cell, forRow: indexPath.row)
-        return cell
+        if indexPath.row < presenter.numberOfRows.ingredients {
+            let cell = tableView.dequeueReusableCell(IngredientCell.self)!
+            presenter.configure(cell: cell, forRow: indexPath.row)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(NutritionCell.self)!
+            presenter.configure(cell: cell, forRow: indexPath.row)
+            return cell
+        }
     }
 }

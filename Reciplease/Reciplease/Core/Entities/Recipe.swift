@@ -40,8 +40,8 @@ struct RecipeDetail: Equatable {
 
 struct RecipeNutritions: Equatable {
     let value: Double
+    let attribute: String
     let name: String
     let abbreviation: String
-    let plural: String
-    let pluralAbbreviation: String
+    let description: String?
 }

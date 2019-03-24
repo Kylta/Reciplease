@@ -34,6 +34,7 @@
 		4656CE7E22442842000ED1D1 /* IngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4656CE7D22442842000ED1D1 /* IngredientCell.xib */; };
 		4656CE80224428B1000ED1D1 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4656CE7F224428B1000ED1D1 /* IngredientCell.swift */; };
 		4678660722461ECC00DB4580 /* JSONDecoder+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4678660622461ECC00DB4580 /* JSONDecoder+helper.swift */; };
+		468E486E2247F12300240E2B /* NutritionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468E486D2247F12300240E2B /* NutritionCell.swift */; };
 		468F28B9224429F800D7B772 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F28B8224429F800D7B772 /* UITableViewExtensions.swift */; };
 		468F28C0224434BC00D7B772 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F28BF224434BC00D7B772 /* SearchPresenter.swift */; };
 		468F28C22244363F00D7B772 /* SearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F28C12244363F00D7B772 /* SearchConfigurator.swift */; };
@@ -58,6 +59,7 @@
 		4696E9FC2245597700BBC312 /* RecipeDetailLocalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4696E9FB2245597700BBC312 /* RecipeDetailLocalPresenter.swift */; };
 		4696E9FE22455A3200BBC312 /* RecipeDetailLocalConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4696E9FD22455A3200BBC312 /* RecipeDetailLocalConfigurator.swift */; };
 		4696EA0422457D4900BBC312 /* RecipeDetailLocalViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4696EA0322457D4900BBC312 /* RecipeDetailLocalViewRouter.swift */; };
+		46CEA06D22480AA30066C83E /* NutritionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46CEA06C22480AA30066C83E /* NutritionCell.xib */; };
 		46EA76B42246D4D900E1D88A /* DateComponentsFormatterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EA76B32246D4D900E1D88A /* DateComponentsFormatterExtensions.swift */; };
 		46EA76B6224788A900E1D88A /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EA76B5224788A900E1D88A /* UIImageView+Kingfisher.swift */; };
 		B01A94F55C61870907A52547 /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A82F7CDC8064E368B15D55 /* Pods_Reciplease.framework */; };
@@ -106,6 +108,7 @@
 		4656CE7D22442842000ED1D1 /* IngredientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCell.xib; sourceTree = "<group>"; };
 		4656CE7F224428B1000ED1D1 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		4678660622461ECC00DB4580 /* JSONDecoder+helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+helper.swift"; sourceTree = "<group>"; };
+		468E486D2247F12300240E2B /* NutritionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionCell.swift; sourceTree = "<group>"; };
 		468F28B8224429F800D7B772 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
 		468F28BF224434BC00D7B772 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		468F28C12244363F00D7B772 /* SearchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConfigurator.swift; sourceTree = "<group>"; };
@@ -130,6 +133,7 @@
 		4696E9FB2245597700BBC312 /* RecipeDetailLocalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailLocalPresenter.swift; sourceTree = "<group>"; };
 		4696E9FD22455A3200BBC312 /* RecipeDetailLocalConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailLocalConfigurator.swift; sourceTree = "<group>"; };
 		4696EA0322457D4900BBC312 /* RecipeDetailLocalViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailLocalViewRouter.swift; sourceTree = "<group>"; };
+		46CEA06C22480AA30066C83E /* NutritionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutritionCell.xib; sourceTree = "<group>"; };
 		46EA76B32246D4D900E1D88A /* DateComponentsFormatterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponentsFormatterExtensions.swift; sourceTree = "<group>"; };
 		46EA76B5224788A900E1D88A /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
 		9F55E5A1A79A43D40ADA0D55 /* Pods_RecipleaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipleaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -374,9 +378,11 @@
 		468F28DE22450BD700D7B772 /* RecipeDetail */ = {
 			isa = PBXGroup;
 			children = (
+				468E486D2247F12300240E2B /* NutritionCell.swift */,
 				468F28DF22450BEA00D7B772 /* RecipeDetailController.swift */,
 				468F28E122450C1500D7B772 /* RecipeDetailPresenter.swift */,
 				468F28E322450CEC00D7B772 /* RecipeDetailConfigurator.swift */,
+				46CEA06C22480AA30066C83E /* NutritionCell.xib */,
 			);
 			path = RecipeDetail;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 			files = (
 				468F28D32244CB2100D7B772 /* RecipesListCell.xib in Resources */,
 				4656CE7E22442842000ED1D1 /* IngredientCell.xib in Resources */,
+				46CEA06D22480AA30066C83E /* NutritionCell.xib in Resources */,
 				4656CE332243EFEC000ED1D1 /* LaunchScreen.storyboard in Resources */,
 				4656CE302243EFEC000ED1D1 /* Assets.xcassets in Resources */,
 				4656CE2B2243EFEB000ED1D1 /* Main.storyboard in Resources */,
@@ -620,6 +627,7 @@
 				468F28E222450C1500D7B772 /* RecipeDetailPresenter.swift in Sources */,
 				4656CE6A2243F7B2000ED1D1 /* ApiRecipeList.swift in Sources */,
 				468F28CC2244C2D000D7B772 /* ViewRouter.swift in Sources */,
+				468E486E2247F12300240E2B /* NutritionCell.swift in Sources */,
 				468F28E022450BEA00D7B772 /* RecipeDetailController.swift in Sources */,
 				4656CE552243F17A000ED1D1 /* DeleteRecipe.swift in Sources */,
 				468F28C62244421900D7B772 /* UIViewExtensions.swift in Sources */,

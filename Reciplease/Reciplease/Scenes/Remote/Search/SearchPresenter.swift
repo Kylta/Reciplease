@@ -19,6 +19,13 @@ protocol IngredientCellView {
     func display(ingredient: String)
 }
 
+protocol NutritionCellView {
+    func display(name: String)
+    func display(value: String)
+    func display(abbreviation: String)
+    func display(description: String)
+}
+
 protocol SearchPresenter {
     var numberOfIngredients: Int { get }
     var router: SearchViewRouter { get }

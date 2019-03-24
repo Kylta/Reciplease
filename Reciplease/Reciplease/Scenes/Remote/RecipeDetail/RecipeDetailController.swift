@@ -34,6 +34,7 @@ class RecipeDetailController: UIViewController, RecipeDetailView, SFSafariViewCo
         ingredientsTableView.separatorStyle = .singleLine
         ingredientsTableView.tableFooterView = UIView()
         ingredientsTableView.register(IngredientCell.self)
+        ingredientsTableView.register(NutritionCell.self)
     }
 
     @IBAction func saveButtonPressed(_ sender: Any) {
@@ -82,12 +83,18 @@ class RecipeDetailController: UIViewController, RecipeDetailView, SFSafariViewCo
 
 extension RecipeDetailController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfIngredients
+        return presenter.numberOfRows.total
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(IngredientCell.self)!
-        presenter.configure(cell: cell, forRow: indexPath.row)
-        return cell
+        if indexPath.row < presenter.numberOfRows.ingredients {
+            let cell = tableView.dequeueReusableCell(IngredientCell.self)!
+            presenter.configure(cell: cell, forRow: indexPath.row)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(NutritionCell.self)!
+            presenter.configure(cell: cell, forRow: indexPath.row)
+            return cell
+        }
     }
 }
