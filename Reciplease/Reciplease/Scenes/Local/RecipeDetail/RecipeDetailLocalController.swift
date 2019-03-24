@@ -22,9 +22,11 @@ class RecipeDetailLocalController: UIViewController, RecipeDetailView, SFSafariV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         configurator.configure(recipeDetailView: self)
         presenter.viewDidLoad()
-        
+
+        favoriteButton.image = #imageLiteral(resourceName: "green star").withRenderingMode(.alwaysOriginal)
         setupTableView()
     }
 
@@ -59,9 +61,6 @@ class RecipeDetailLocalController: UIViewController, RecipeDetailView, SFSafariV
         controller.dismiss(animated: true, completion: nil)
     }
 
-    func favorite(recipe: Bool) {
-        favoriteButton.image = #imageLiteral(resourceName: "green star").withRenderingMode(recipe ? .alwaysOriginal : .alwaysTemplate)
-    }
 
     func display(recipeImageUrl: String) {
         backgroundImage.setImage(withUrl: recipeImageUrl)
@@ -78,6 +77,8 @@ class RecipeDetailLocalController: UIViewController, RecipeDetailView, SFSafariV
     func display(time: String) {
         timeLabel.text = time
     }
+
+    func favorite(recipe: Bool) { }
 }
 
 extension RecipeDetailLocalController: UITableViewDataSource, UITableViewDelegate {

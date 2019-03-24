@@ -54,7 +54,7 @@ class RecipeDetailPresenterImplementation: RecipeDetailPresenter {
         recipeDetail = recipe.details
         displayRecipesUseCase.displayRecipes { result in
             if case let .success(recipes) = result {
-                self.view?.favorite(recipe: recipes.contains(self.recipe))
+                self.view?.favorite(recipe: (recipes.first(where: {$0.name == self.recipe.name }) != nil))
             }
         }
 
@@ -75,7 +75,7 @@ class RecipeDetailPresenterImplementation: RecipeDetailPresenter {
         view?.display(time: "\(recipeDetail.time / 60) min")
         view?.display(rating: recipeDetail.rate)
         view?.display(recipeName: recipeDetail.name)
-        let recipeImageUrl = recipeDetail.imageURL.replacingOccurrences(of: "90-c", with: "500-c")
+        let recipeImageUrl = recipeDetail.imageURL.replacingOccurrences(of: "90-c", with: "300-c")
         view?.display(recipeImageUrl: recipeImageUrl)
     }
 

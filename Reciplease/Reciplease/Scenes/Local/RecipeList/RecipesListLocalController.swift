@@ -30,8 +30,6 @@ class RecipesListLocalController: UITableViewController, RecipesListView {
         presenter.router.prepare(for: segue, sender: sender)
     }
 
-    @IBAction func cancelButtonPressed(_ sender: Any) { }
-
     func refreshView() {
         tableView.reloadData()
     }

@@ -379,10 +379,10 @@
 			isa = PBXGroup;
 			children = (
 				468E486D2247F12300240E2B /* NutritionCell.swift */,
+				46CEA06C22480AA30066C83E /* NutritionCell.xib */,
 				468F28DF22450BEA00D7B772 /* RecipeDetailController.swift */,
 				468F28E122450C1500D7B772 /* RecipeDetailPresenter.swift */,
 				468F28E322450CEC00D7B772 /* RecipeDetailConfigurator.swift */,
-				46CEA06C22480AA30066C83E /* NutritionCell.xib */,
 			);
 			path = RecipeDetail;
 			sourceTree = "<group>";

@@ -12,12 +12,12 @@ import CoreData
 extension CoreDataRecipe {
     var recipe: Recipe {
         let recipeNutritions = recipeDetails?.nutritions?.allObjects as? [CoreDataRecipeNutritions]
-        let recipeNutritionsMapped = recipeNutritions.map { $0.map { RecipeNutritions(value: $0.value,
-                                                                                      attribute: $0.attribute ?? "",
-                                                                                      name: $0.name ?? "",
-                                                                                      abbreviation: $0.abbreviation ?? "",
-                                                                                      description: $0.detail) } }!
-
+        let recipeNutritionsMapped = recipeNutritions.map {
+            $0.map { RecipeNutritions(value: $0.value,
+                                      attribute: $0.attribute ?? "",
+                                      name: $0.name ?? "",
+                                      abbreviation: $0.abbreviation ?? "",
+                                      description: $0.detail) } }!
         let details = RecipeDetail(name: recipeDetails?.name ?? "",
                                    ingredients: recipeDetails?.ingredients ?? [],
                                    rate: Int(recipeDetails?.rate ?? 0),
@@ -54,7 +54,7 @@ extension CoreDataRecipe {
 }
 
 extension CoreDataRecipeDetails {
-     var recipeDetails: RecipeDetail {
+    var recipeDetails: RecipeDetail {
         return RecipeDetail(name: name ?? "",
                             ingredients: ingredients ?? [],
                             rate: Int(rate), time: Int(time),

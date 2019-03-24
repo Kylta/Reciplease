@@ -42,11 +42,6 @@ class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
 
     func viewDidLoad() {
         recipeDetails = recipe.details
-        displayRecipesUseCase.displayRecipes { result in
-            if case let .success(recipes) = result {
-                self.view?.favorite(recipe: recipes.contains(self.recipe))
-            }
-        }
 
         recipeNutritions = recipeDetails.nutritions.filter {
             $0.attribute == "K"

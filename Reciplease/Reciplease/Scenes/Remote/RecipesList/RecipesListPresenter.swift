@@ -85,7 +85,7 @@ class RecipesListPresenterImplementation: RecipesListPresenter {
     
     func configure(cell: RecipesListCellView, forRow row: Int) {
         let recipe = recipes[row]
-        let recipeImageUrl = recipe.imageURL.replacingOccurrences(of: "90-c", with: "500-c")
+        let recipeImageUrl = recipe.imageURL.replacingOccurrences(of: "90-c", with: "300-c")
         cell.display(recipeName: recipe.name)
         cell.display(recipesIngredients: recipe.ingredients.joined(separator: ", "))
         cell.display(time: recipe.time.timeFormmater)
