@@ -35,4 +35,13 @@ struct RecipeDetail: Equatable {
     let time: Int
     let imageURL: String
     let recipeURL: String
+    let nutritions: [RecipeNutritions]
+}
+
+struct RecipeNutritions: Equatable {
+    let value: Double
+    let name: String
+    let abbreviation: String
+    let plural: String
+    let pluralAbbreviation: String
 }

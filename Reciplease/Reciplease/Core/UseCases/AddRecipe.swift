@@ -11,7 +11,7 @@ import Foundation
 typealias AddRecipeUseCaseCompletionHandler = (_ recipes: Result<Recipe>) -> Void
 
 protocol AddRecipeUseCase {
-    func add(parameters: AddRecipeParameters, detailsParameters: AddRecipeDetailParameters, completionHandler: @escaping AddRecipeEntityGatewayCompletionHandler)
+    func add(parameters: AddRecipeParameters, detailsParameters: AddRecipeDetailParameters, nutritrionsParameters: [AddRecipeNutritionsParameters], completionHandler: @escaping AddRecipeEntityGatewayCompletionHandler)
 }
 
 struct AddRecipeParameters {
@@ -32,6 +32,14 @@ struct AddRecipeDetailParameters {
     let recipeURL: String
 }
 
+struct AddRecipeNutritionsParameters {
+    let value: Double
+    let name: String
+    let abbreviation: String
+    let plural: String
+    let pluralAbbreviation: String
+}
+
 class AddRecipeUseCaseImplementation: AddRecipeUseCase {
     let recipesGateway: RecipesGateway
 
@@ -41,8 +49,10 @@ class AddRecipeUseCaseImplementation: AddRecipeUseCase {
 
     // MARK: - AddRecipeUseCase
 
-    func add(parameters: AddRecipeParameters, detailsParameters: AddRecipeDetailParameters, completionHandler: @escaping AddRecipeEntityGatewayCompletionHandler) {
-        self.recipesGateway.add(parameters: parameters, detailsParameters: detailsParameters) { result in
+    func add(parameters: AddRecipeParameters, detailsParameters: AddRecipeDetailParameters, nutritrionsParameters: [AddRecipeNutritionsParameters], completionHandler: @escaping AddRecipeEntityGatewayCompletionHandler) {
+        self.recipesGateway.add(parameters: parameters,
+                                detailsParameters: detailsParameters,
+                                nutritrionsParameters: nutritrionsParameters) { result in
             completionHandler(result)
         }
     }

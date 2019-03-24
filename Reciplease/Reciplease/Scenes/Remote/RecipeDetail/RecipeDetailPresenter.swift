@@ -71,7 +71,9 @@ class RecipeDetailPresenterImplementation: RecipeDetailPresenter {
     func favoritesButtonPressed() {
         let recipeParameters = AddRecipeParameters(name: recipe.name, ingredients: recipe.ingredients, id: recipe.id, rate: recipe.rate, time: recipe.time, imageURL: recipe.imageURL)
         let recipeDetailParameters = AddRecipeDetailParameters(name: recipeDetail.name, ingredients: recipeDetail.ingredients, rate: recipeDetail.rate, time: recipeDetail.time, imageURL: recipeDetail.imageURL, recipeURL: recipeDetail.recipeURL)
-        addRecipeUseCase.add(parameters: recipeParameters, detailsParameters: recipeDetailParameters) { result in
+        let recipeNutritionsParameters = recipe.details?.nutritions.map { AddRecipeNutritionsParameters(value: $0.value, name: $0.name, abbreviation: $0.abbreviation, plural: $0.plural, pluralAbbreviation: $0.pluralAbbreviation) }
+        
+        addRecipeUseCase.add(parameters: recipeParameters, detailsParameters: recipeDetailParameters, nutritrionsParameters: recipeNutritionsParameters!) { result in
             switch result {
             case .success:
                 self.view?.favorite(recipe: true)

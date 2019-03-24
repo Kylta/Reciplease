@@ -11,12 +11,20 @@ import CoreData
 
 extension CoreDataRecipe {
     var recipe: Recipe {
+        let recipeNutritions = recipeDetails?.nutritions?.allObjects as? [CoreDataRecipeNutritions]
+        let recipeNutritionsMapped = recipeNutritions.map { $0.map { RecipeNutritions(value: $0.value ,
+                                                                                      name: $0.name ?? "",
+                                                                                      abbreviation: $0.abbreviation ?? "",
+                                                                                      plural: $0.abbreviation ?? "",
+                                                                                      pluralAbbreviation: $0.pluralAbbreviation ?? "") } }!
+
         let details = RecipeDetail(name: recipeDetails?.name ?? "",
                                    ingredients: recipeDetails?.ingredients ?? [],
                                    rate: Int(recipeDetails?.rate ?? 0),
                                    time: Int(recipeDetails?.time ?? 0),
                                    imageURL: recipeDetails?.imageURL ?? "",
-                                   recipeURL: recipeDetails?.recipeURL ?? "")
+                                   recipeURL: recipeDetails?.recipeURL ?? "",
+                                   nutritions: recipeNutritionsMapped)
         return Recipe(name: name ?? "",
                       ingredients: ingredients ?? [],
                       id: id,
@@ -51,7 +59,8 @@ extension CoreDataRecipeDetails {
                             ingredients: ingredients ?? [],
                             rate: Int(rate), time: Int(time),
                             imageURL: imageURL ?? "",
-                            recipeURL: recipeURL ?? "")
+                            recipeURL: recipeURL ?? "",
+                            nutritions: nutritions?.allObjects as! [RecipeNutritions])
     }
 
     func populate(with parameters: AddRecipeDetailParameters) {
@@ -70,5 +79,32 @@ extension CoreDataRecipeDetails {
         time = Int32(recipeDetail.time)
         imageURL = recipeDetail.imageURL
         recipeURL = recipeDetail.recipeURL
+    }
+}
+
+extension CoreDataRecipeNutritions {
+    var recipeNutritions: RecipeNutritions {
+        return RecipeNutritions(value: value,
+                                name: name ?? "",
+                                abbreviation: abbreviation ?? "",
+                                plural: plural ?? "",
+                                pluralAbbreviation: pluralAbbreviation ?? ""
+        )
+    }
+
+    func populate(with parameters: AddRecipeNutritionsParameters) {
+        value = parameters.value
+        name = parameters.name
+        abbreviation = parameters.abbreviation
+        plural = parameters.plural
+        pluralAbbreviation = parameters.pluralAbbreviation
+    }
+
+    func populate(with recipeDetail: RecipeNutritions) {
+        value = recipeDetail.value
+        name = recipeDetail.name
+        abbreviation = recipeDetail.abbreviation
+        plural = recipeDetail.plural
+        pluralAbbreviation = recipeDetail.pluralAbbreviation
     }
 }

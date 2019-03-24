@@ -12,6 +12,7 @@ import CoreData
 protocol LocalPersistenceRecipesGateway: RecipesGateway {}
 
 class CoreDataRecipesGateway: LocalPersistenceRecipesGateway {
+
     let viewContext: NSManagedObjectContextProtocol
 
     init(viewContext: NSManagedObjectContextProtocol) {
@@ -29,7 +30,7 @@ class CoreDataRecipesGateway: LocalPersistenceRecipesGateway {
         }
     }
 
-    func add(parameters: AddRecipeParameters, detailsParameters: AddRecipeDetailParameters, completionHandler: @escaping AddRecipeEntityGatewayCompletionHandler) {
+    func add(parameters: AddRecipeParameters, detailsParameters: AddRecipeDetailParameters, nutritrionsParameters: [AddRecipeNutritionsParameters], completionHandler: @escaping AddRecipeEntityGatewayCompletionHandler) {
         let predicate = NSPredicate(format: "name==%@", parameters.name)
 
         if let coreDataRecipes = try? viewContext.allEntities(withType: CoreDataRecipe.self, predicate: predicate),
@@ -41,12 +42,20 @@ class CoreDataRecipesGateway: LocalPersistenceRecipesGateway {
 
         guard let coreDataRecipe = viewContext.addEntity(withType: CoreDataRecipe.self),
             let coreDataRecipeDetail = viewContext.addEntity(withType: CoreDataRecipeDetails.self) else {
-            completionHandler(.failure(CoreError(message: "Failed adding the recipe in the data base")))
-            return
+                completionHandler(.failure(CoreError(message: "Failed adding the recipe in the data base")))
+                return
         }
 
         coreDataRecipe.populate(with: parameters)
         coreDataRecipeDetail.populate(with: detailsParameters)
+
+        let nutritionsArray = nutritrionsParameters.map { nutrition -> CoreDataRecipeNutritions in
+            let coreDataNutritions = viewContext.addEntity(withType: CoreDataRecipeNutritions.self)!
+            coreDataNutritions.populate(with: nutrition)
+            return coreDataNutritions
+        }
+
+        coreDataRecipeDetail.addToNutritions(NSSet(array: nutritionsArray))
         coreDataRecipe.recipeDetails = coreDataRecipeDetail
 
         do {

@@ -15,7 +15,7 @@ typealias DeleteRecipeEntityGatewayCompletionHandler = (_ recipes: Result<Void>)
 
 protocol RecipesGateway {
     func fetchRecipes(completionHandler: @escaping FetchRecipesEntityGatewayCompletionHandler)
-    func add(parameters: AddRecipeParameters, detailsParameters: AddRecipeDetailParameters, completionHandler: @escaping AddRecipeEntityGatewayCompletionHandler)
+    func add(parameters: AddRecipeParameters, detailsParameters: AddRecipeDetailParameters, nutritrionsParameters: [AddRecipeNutritionsParameters], completionHandler: @escaping AddRecipeEntityGatewayCompletionHandler)
     func delete(recipe: Recipe, completionHandler: @escaping DeleteRecipeEntityGatewayCompletionHandler)
 }
 

@@ -51,7 +51,7 @@ internal struct RecipeItemMapper: Decodable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let imageURLContainer = try container.nestedContainer(keyedBy: ImageURLCodingKeys.self, forKey: .imageUrlsBySize)
-        
+
         name = try container.decode(key: .name)
         ingredients = try container.decode(key: .ingredients)
         rate = try container.decode(key: .rate)
@@ -61,7 +61,7 @@ internal struct RecipeItemMapper: Decodable {
         id = try container.decodeIfPresent(key: .id)
 
     }
-    
+
     static var OK_200: Int { return 200 }
     
     static func map(_ data: Data, _ response: HTTPURLResponse) -> Result<[Recipe]> {

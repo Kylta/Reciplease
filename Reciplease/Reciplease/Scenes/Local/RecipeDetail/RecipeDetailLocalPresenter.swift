@@ -68,7 +68,11 @@ class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
     }
 
     func configure(cell: IngredientCellView, forRow row: Int) {
-        cell.display(ingredient: recipeDetails.ingredients[row])
+//        if recipeDetails?.ingredients {
+//            cell.display(ingredient: recipeDetails.ingredients[row])
+//        } else if recipeDetails?.nutritions {
+//            cell.display(ingredient: recipeDetails.nutritions[row].name)
+//        }
     }
 
     fileprivate func registerForDeleteRecipeNotification() {

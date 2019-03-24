@@ -16,10 +16,20 @@
         <attribute name="rate" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="recipeURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="nutritions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataRecipeNutritions" inverseName="details" inverseEntity="CoreDataRecipeNutritions" syncable="YES"/>
         <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRecipe" inverseName="recipeDetails" inverseEntity="CoreDataRecipe" syncable="YES"/>
+    </entity>
+    <entity name="CoreDataRecipeNutritions" representedClassName="CoreDataRecipeNutritions" syncable="YES" codeGenerationType="class">
+        <attribute name="abbreviation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plural" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pluralAbbreviation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="details" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRecipeDetails" inverseName="nutritions" inverseEntity="CoreDataRecipeDetails" syncable="YES"/>
     </entity>
     <elements>
         <element name="CoreDataRecipe" positionX="-63" positionY="-18" width="128" height="150"/>
-        <element name="CoreDataRecipeDetails" positionX="-45" positionY="45" width="128" height="150"/>
+        <element name="CoreDataRecipeDetails" positionX="186.90234375" positionY="27.64453125" width="128" height="165"/>
+        <element name="CoreDataRecipeNutritions" positionX="362.62109375" positionY="150.87890625" width="128" height="135"/>
     </elements>
 </model>

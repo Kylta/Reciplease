@@ -9,6 +9,11 @@
 import UIKit
 import SafariServices
 
+enum CellType {
+    case ingredient
+    case nutrition
+}
+
 class RecipeDetailLocalController: UIViewController, RecipeDetailView, SFSafariViewControllerDelegate {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!

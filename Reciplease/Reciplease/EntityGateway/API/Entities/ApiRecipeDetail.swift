@@ -15,8 +15,35 @@ internal struct RecipeDetailItemMapper: Decodable {
     let time: Int
     let imageURL: String
     let recipeURL: String
+    var nutritions: [Nutritions]
     var item: RecipeDetail {
-        return RecipeDetail(name: name, ingredients: ingredients, rate: rate, time: time, imageURL: imageURL, recipeURL: recipeURL)
+        return RecipeDetail(name: name,
+                            ingredients: ingredients,
+                            rate: rate,
+                            time: time,
+                            imageURL: imageURL,
+                            recipeURL: recipeURL,
+                            nutritions: nutritions.map { $0.nutritions })
+    }
+
+    class Nutritions: Decodable {
+        let value: Double
+        let unit: Unit
+        var nutritions: RecipeNutritions {
+            return RecipeNutritions(value: value,
+                                    name: unit.name,
+                                    abbreviation: unit.abbreviation,
+                                    plural: unit.plural,
+                                    pluralAbbreviation: unit.pluralAbbreviation
+            )
+        }
+
+        class Unit: Decodable {
+            let name: String
+            let abbreviation: String
+            let plural: String
+            let pluralAbbreviation: String
+        }
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -24,6 +51,7 @@ internal struct RecipeDetailItemMapper: Decodable {
         case ingredients = "ingredientLines"
         case rate = "rating"
         case time = "totalTimeInSeconds"
+        case nutritions = "nutritionEstimates"
     }
 
     private enum ImageCodingKeys: String, CodingKey {
@@ -47,6 +75,8 @@ internal struct RecipeDetailItemMapper: Decodable {
 
         let imageURL = try imageURLContainer.decode([String: Any].self)
         self.imageURL = imageURL["hostedLargeUrl"] as! String
+
+        nutritions = try container.decode([Nutritions].self, forKey: .nutritions)
     }
 
     static var OK_200: Int { return 200 }
