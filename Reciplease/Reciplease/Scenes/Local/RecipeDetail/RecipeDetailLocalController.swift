@@ -50,6 +50,10 @@ class RecipeDetailLocalController: UIViewController, RecipeDetailView, SFSafariV
         safariVC.delegate = self
     }
 
+    func displayRecipeDeleteError(title: String, message: String) {
+        presentAlert(title: title, message: message)
+    }
+
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         controller.dismiss(animated: true, completion: nil)
     }
@@ -58,9 +62,8 @@ class RecipeDetailLocalController: UIViewController, RecipeDetailView, SFSafariV
         favoriteButton.image = #imageLiteral(resourceName: "green star").withRenderingMode(recipe ? .alwaysOriginal : .alwaysTemplate)
     }
 
-
     func display(recipeImageUrl: String) {
-        backgroundImage.downloadedFrom(link: recipeImageUrl)
+        backgroundImage.setImage(withUrl: recipeImageUrl)
     }
 
     func display(recipeName: String) {

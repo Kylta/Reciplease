@@ -31,6 +31,12 @@ class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
         self.deleteRecipeUseCase = deleteRecipeUseCase
         self.router = router
         self.recipe = recipe
+
+        registerForDeleteRecipeNotification()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     func viewDidLoad() {
@@ -55,14 +61,31 @@ class RecipeDetailLocalPresenterImplementation: RecipeDetailPresenter {
 
     func favoritesButtonPressed() {
         deleteRecipeUseCase.delete(recipe: recipe) { result in
-            if case .success = result {
-                self.router.dismiss()
+            if case let .failure(error) = result {
+                self.view?.displayRecipeDeleteError(title: "Error", message: error.localizedDescription)
             }
         }
     }
 
     func configure(cell: IngredientCellView, forRow row: Int) {
         cell.display(ingredient: recipeDetails.ingredients[row])
+    }
+
+    fileprivate func registerForDeleteRecipeNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didReceiveDeleteRecipeNotification),
+                                               name: DeleteRecipeUseCaseNotifications.didDeleteRecipe,
+                                               object: nil)
+    }
+
+    @objc fileprivate func didReceiveDeleteRecipeNotification(_ notification: Notification) {
+        if let _ = notification.object as? Recipe {
+            handleRecipeDeleted()
+        }
+    }
+
+    fileprivate func handleRecipeDeleted() {
+        router.dismiss()
     }
 }
 

@@ -16,7 +16,7 @@ class RecipesListCell: UITableViewCell, RecipesListCellView {
     @IBOutlet weak var timeLabel: UILabel!
 
     func display(recipeImageUrl: String) {
-        backgroundImageView?.downloadedFrom(link: recipeImageUrl)
+        backgroundImageView.setImage(withUrl: recipeImageUrl)
     }
 
     func display(recipeName: String) {

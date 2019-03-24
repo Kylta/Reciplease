@@ -7,7 +7,8 @@ target 'Reciplease' do
 
   # Pods for Reciplease
 	pod 'Alamofire'
-  pod 'JGProgressHUD'
+  	pod 'JGProgressHUD'
+	pod 'Kingfisher'
 
   target 'RecipleaseTests' do
     inherit! :search_paths

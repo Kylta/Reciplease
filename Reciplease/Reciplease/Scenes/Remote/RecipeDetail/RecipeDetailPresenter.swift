@@ -15,6 +15,7 @@ protocol RecipeDetailView: class {
     func display(time: String)
     func favorite(recipe: Bool)
     func presentSafari(url: URL)
+    func displayRecipeDeleteError(title: String, message: String)
 }
 
 protocol RecipeDetailPresenter {

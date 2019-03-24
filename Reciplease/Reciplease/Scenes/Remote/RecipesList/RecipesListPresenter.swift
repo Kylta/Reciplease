@@ -40,9 +40,9 @@ class RecipesListPresenterImplementation: RecipesListPresenter {
     fileprivate weak var view: RecipesListView?
     fileprivate weak var delegate: RecipesListPresenterDelegate?
     private(set) var router: RecipesListViewRouter
-
+    
     var recipes: [Recipe]
-
+    
     init(view: RecipesListView,
          recipes: [Recipe],
          delegate: RecipesListPresenterDelegate?,
@@ -52,19 +52,19 @@ class RecipesListPresenterImplementation: RecipesListPresenter {
         self.delegate = delegate
         self.recipes = recipes
     }
-
+    
     var numbersOfRecipes: Int {
         return recipes.count
     }
-
+    
     func viewDidLoad() {
         self.view?.refreshView()
     }
-
+    
     func cancelButtonPressed() {
         delegate?.recipesListPresenterCancel(presenter: self)
     }
-
+    
     func didSelect(row: Int) {
         view?.showLoader()
         var recipe = recipes[row]
@@ -82,7 +82,7 @@ class RecipesListPresenterImplementation: RecipesListPresenter {
             self?.view?.hideLoader()
         }
     }
-
+    
     func configure(cell: RecipesListCellView, forRow row: Int) {
         let recipe = recipes[row]
         let recipeImageUrl = recipe.imageURL.replacingOccurrences(of: "90-c", with: "500-c")

@@ -54,13 +54,17 @@ class RecipeDetailController: UIViewController, RecipeDetailView, SFSafariViewCo
         controller.dismiss(animated: true, completion: nil)
     }
 
+    func displayRecipeDeleteError(title: String, message: String) {
+        presentAlert(title: title, message: message)
+    }
+
     func favorite(recipe: Bool) {
         favoriteButton.image = #imageLiteral(resourceName: "green star").withRenderingMode(recipe ? .alwaysOriginal : .alwaysTemplate)
     }
 
 
     func display(recipeImageUrl: String) {
-        backgroundImage.downloadedFrom(link: recipeImageUrl)
+        backgroundImage.setImage(withUrl: recipeImageUrl)
     }
 
     func display(recipeName: String) {
