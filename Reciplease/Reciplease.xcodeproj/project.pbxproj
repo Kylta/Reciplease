@@ -220,19 +220,10 @@
 		4656CE3C2243EFEC000ED1D1 /* RecipleaseTests */ = {
 			isa = PBXGroup;
 			children = (
+				46CEA08D2248E2740066C83E /* Helpers */,
+				46CEA08C2248E2130066C83E /* Gateways */,
 				4656CE3F2243EFEC000ED1D1 /* Info.plist */,
-				46CEA0782248501C0066C83E /* ApiClientTest.swift */,
-				46CEA072224841BE0066C83E /* RemoteRecipeDetail.swift */,
-				46CEA06E224837DE0066C83E /* RemoteRecipeListLoader.swift */,
-				46CEA07E224854130066C83E /* InMemoryDataStack.swift */,
-				46CEA07C224853B80066C83E /* CoreDataRecipeGatewayTest.swift */,
-				46CEA080224854480066C83E /* NSManagedObjectContextSpy.swift */,
-				46CEA088224866880066C83E /* NSError.swift */,
-				46CEA082224856100066C83E /* AddRecipeParameters.swift */,
-				46CEA086224862CA0066C83E /* Recipe.swift */,
 				46CEA08422485C5A0066C83E /* Result.swift */,
-				46CEA07022483B360066C83E /* recipe.json */,
-				46CEA0762248444F0066C83E /* recipeDetail.json */,
 			);
 			path = RecipleaseTests;
 			sourceTree = "<group>";
@@ -459,6 +450,47 @@
 				4696EA0322457D4900BBC312 /* RecipeDetailLocalViewRouter.swift */,
 			);
 			path = RecipeDetail;
+			sourceTree = "<group>";
+		};
+		46CEA08A2248E1D60066C83E /* Creators */ = {
+			isa = PBXGroup;
+			children = (
+				46CEA082224856100066C83E /* AddRecipeParameters.swift */,
+				46CEA088224866880066C83E /* NSError.swift */,
+				46CEA07022483B360066C83E /* recipe.json */,
+				46CEA086224862CA0066C83E /* Recipe.swift */,
+				46CEA0762248444F0066C83E /* recipeDetail.json */,
+			);
+			path = Creators;
+			sourceTree = "<group>";
+		};
+		46CEA08B2248E1F90066C83E /* Gateway */ = {
+			isa = PBXGroup;
+			children = (
+				46CEA07E224854130066C83E /* InMemoryDataStack.swift */,
+				46CEA080224854480066C83E /* NSManagedObjectContextSpy.swift */,
+			);
+			path = Gateway;
+			sourceTree = "<group>";
+		};
+		46CEA08C2248E2130066C83E /* Gateways */ = {
+			isa = PBXGroup;
+			children = (
+				46CEA07C224853B80066C83E /* CoreDataRecipeGatewayTest.swift */,
+				46CEA072224841BE0066C83E /* RemoteRecipeDetail.swift */,
+				46CEA06E224837DE0066C83E /* RemoteRecipeListLoader.swift */,
+				46CEA0782248501C0066C83E /* ApiClientTest.swift */,
+			);
+			path = Gateways;
+			sourceTree = "<group>";
+		};
+		46CEA08D2248E2740066C83E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				46CEA08A2248E1D60066C83E /* Creators */,
+				46CEA08B2248E1F90066C83E /* Gateway */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		92A51912C4215C0ED8C2A1B5 /* Pods */ = {
