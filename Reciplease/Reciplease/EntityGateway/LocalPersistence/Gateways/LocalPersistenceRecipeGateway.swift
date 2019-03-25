@@ -26,7 +26,7 @@ class CoreDataRecipesGateway: LocalPersistenceRecipesGateway {
             let recipes = coreDataRecipes.map { $0.recipe }
             completionHandler(.success(recipes))
         } else {
-            completionHandler(.failure(CoreError(message: "Failed retrieving recipes the data base")))
+            completionHandler(.failure(CoreError(message: "Failed Retrieving recipes the data base")))
         }
     }
 
@@ -75,6 +75,7 @@ class CoreDataRecipesGateway: LocalPersistenceRecipesGateway {
             viewContext.delete(coreDataRecipe)
         } else {
             completionHandler(.failure(CoreError(message: "Failed retrieving recipes the data base")))
+            return
         }
 
         do {

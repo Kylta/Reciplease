@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Recipe: Equatable {
+struct Recipe {
     let name: String
     let ingredients: [String]
     let id: String?
@@ -26,6 +26,12 @@ struct Recipe: Equatable {
         self.imageURL = imageURL
         self.details = details
     }
+}
+
+extension Recipe: Equatable {}
+
+func == (lhs: Recipe, rhs: Recipe) -> Bool {
+    return lhs.name == rhs.name
 }
 
 struct RecipeDetail: Equatable {

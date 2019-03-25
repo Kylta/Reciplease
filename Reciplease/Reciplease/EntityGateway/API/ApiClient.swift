@@ -29,8 +29,7 @@ class ApiClientImplementation: ApiClient {
             .responseData { response in
                 guard let data = response.data,
                     let httpUrlResponse = response.response else { return
-//                    completion(.failure(response.error!))
-                        completion(.failure(ApiRecipesGatewayImplementation.Error.connectivity))
+                    completion(.failure(response.error!))
                 }
 
                 completion(.success(data, httpUrlResponse))
